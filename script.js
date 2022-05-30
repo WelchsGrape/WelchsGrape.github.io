@@ -16,4 +16,4 @@ function readTextFile(file)
     rawFile.send(null);
 }
 
-readTextFile("https://github.com/WelchsGrape/WelchsGrape.github.io/blob/main/README.md");
+readTextFile("https://WelchsGrape.github.io/a.txt");
