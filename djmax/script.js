@@ -11,7 +11,8 @@ function showName(name) {
     document.getElementById('section').innerText = name;
 }
 
-function showVersion(version) {
+function showVersion(paramVersion) {
+    // 기존 내용이 있었다면 삭제
     let dataArea = document.getElementById('data');
     if (dataArea) {
         dataArea.remove();
@@ -19,27 +20,19 @@ function showVersion(version) {
 
     // 데이터에서 필터
     let arr = [];
+
+    if (paramVersion == 'ALL') {
+        arr = data;
+    }
+
     for (const iterator of data) {
-        if (iterator.version == version) {
+        if (iterator.version == paramVersion) {
             arr.push(iterator);
         }
     }
 
-    // // 제목 설정
-    // let text = '버전: ';
-    // switch (version) {
-    //     case 'RS':
-    //         text += 'RESPECT';
-    //         break;
-    //     case 'P1':
-    //         text += 'PORTABLE 1';
-    //         break;
-    //     case 'P2':
-    //         text += 'PORTABLE 2';
-    //         break;
-    //     }
-    // text += ` [${arr.length}]`
-    // document.getElementById('section').innerText = text;
+    // 제목 설정
+    document.getElementById('section').innerText = `[${arr.length}]`;
 
     // 테이블 생성하고 내용 채우기
     let table = document.createElement('table');
@@ -53,8 +46,8 @@ function showVersion(version) {
     document.getElementById('article').appendChild(table);
 
     let row = document.createElement('tr');
-    let itemVersion = document.createElement('th');
-    itemVersion.innerHTML = "버전";
+    let version = document.createElement('th');
+    version.innerHTML = "버전";
     let name = document.createElement('th');
     name.innerHTML = "곡 이름";
     let composer = document.createElement('th');
@@ -74,7 +67,7 @@ function showVersion(version) {
     difficulty8B.colSpan = 4;
     difficulty8B.innerHTML = "8B 난이도";
 
-    row.appendChild(itemVersion);
+    row.appendChild(version);
     row.appendChild(name);
     row.appendChild(composer);
     row.appendChild(BPM);
@@ -86,8 +79,8 @@ function showVersion(version) {
 
     for (const iterator of arr) {
         row = document.createElement('tr');
-        itemVersion = document.createElement('td');
-        itemVersion.innerHTML = `${iterator.version}`;
+        version = document.createElement('td');
+        version.innerHTML = `${iterator.version}`;
         name = document.createElement('td');
         name.innerHTML = `${iterator.name}`;
         composer = document.createElement('td');
@@ -147,7 +140,7 @@ function showVersion(version) {
         SC8B.className = 'difficulty';
         SC8B.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
         
-        row.appendChild(itemVersion);
+        row.appendChild(version);
         row.appendChild(name);
         row.appendChild(composer);
         row.appendChild(BPM);
