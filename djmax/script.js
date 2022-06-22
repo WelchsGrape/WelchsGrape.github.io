@@ -1,7 +1,7 @@
 // 시작할 때
 let today = new Date();
 let year = today.getFullYear();
-let month = today.getMonth();
+let month = today.getMonth() + 1;
 let date = today.getDate();
 
 document.getElementById('date').innerText = `Recent Update: ${year}-${month}-${date}`;
