@@ -1,11 +1,3 @@
-// 시작할 때
-let today = new Date();
-let year = today.getFullYear();
-let month = today.getMonth() + 1;
-let date = today.getDate();
-
-document.getElementById('date').innerText = `Recent Update: ${year}-${month}-${date}`;
-
 // 이미 만들어진 테이블을 삭제
 function removeTable() {
     document.getElementById('section').innerText = '';
