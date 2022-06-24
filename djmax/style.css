@@ -41,3 +41,7 @@ th.difficulty {
 td.difficulty {
     width: 30px;
 }
+
+.songname, .composer {
+    text-align: left;
+}

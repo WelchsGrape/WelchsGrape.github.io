@@ -88,10 +88,12 @@ function showName(paramName) {
 
         name = document.createElement('td');
         name.innerHTML = `${iterator.name}`;
+        name.className = 'songname';
         row.appendChild(name);
 
         composer = document.createElement('td');
         composer.innerHTML = `${iterator.composer}`;
+        composer.className = 'composer';
         row.appendChild(composer);
 
         BPM = document.createElement('td');
@@ -222,10 +224,12 @@ function showVersion(paramVersion) {
 
         name = document.createElement('td');
         name.innerHTML = `${iterator.name}`;
+        name.className = 'songname';
         row.appendChild(name);
 
         composer = document.createElement('td');
         composer.innerHTML = `${iterator.composer}`;
+        composer.className = 'composer';
         row.appendChild(composer);
 
         BPM = document.createElement('td');
@@ -365,10 +369,12 @@ function showLevel(level) {
 
         name = document.createElement('td');
         name.innerHTML = `${iterator.name}`;
+        name.className = 'songname';
         row.appendChild(name);
 
         composer = document.createElement('td');
         composer.innerHTML = `${iterator.composer}`;
+        composer.className = 'composer';
         row.appendChild(composer);
 
         BPM = document.createElement('td');
@@ -484,10 +490,12 @@ function showSCLevel(level) {
 
         name = document.createElement('td');
         name.innerHTML = `${iterator.name}`;
+        name.className = 'songname';
         row.appendChild(name);
 
         composer = document.createElement('td');
         composer.innerHTML = `${iterator.composer}`;
+        composer.className = 'composer';
         row.appendChild(composer);
 
         BPM = document.createElement('td');
