@@ -1,0 +1,7 @@
+body { background-color: #191919; }
+table, th, td { border: 1px solid white; border-collapse: collapse; padding: 0px; }
+th { background-color: gray; width: 32px; height: 191px; }
+td { vertical-align: top;}
+td.chart { width: 120px; }
+div { background-image: url("back.png"); width: 120px; height: 191px; }
+div, div img { position: absolute; }

@@ -26,12 +26,12 @@ td.name {
     width: 20px;
 }
 
-th.pack {
+th.series {
     width: 100px;
 }
 
-td.pack {
-    width: 150px;
+td.series {
+    width: 30px;
 }
 
 th.difficulty {
