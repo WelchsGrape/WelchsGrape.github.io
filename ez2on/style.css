@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+}
+
+h1, p, a, footer {
+    color: white;
+}
+
+header, nav, section, article, footer {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+th, td {
+    border: 1px solid gray;
+    color: white;
+}
+
+th.name {
+    width: 100px;
+}
+
+td.name {
+    width: 20px;
+}
+
+th.pack {
+    width: 100px;
+}
+
+td.pack {
+    width: 150px;
+}
+
+th.difficulty {
+    width: 100px;
+}
+
+td.difficulty {
+    width: 30px;
+}
+
+.songname, .composer {
+    text-align: left;
+}
