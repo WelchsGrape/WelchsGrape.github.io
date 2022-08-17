@@ -114,27 +114,41 @@ function showName(paramName) {
     row.appendChild(BPM);
     
     let BSC;
-    if (!document.getElementById('key8').checked) {
+    if (document.getElementById('key4').checked
+    || document.getElementById('key5').checked
+    || document.getElementById('key6').checked) {
         BSC = document.createElement('th');
         BSC.innerHTML = "BSC";
         row.appendChild(BSC);
     }
     
-    let EZ = document.createElement('th');
-    EZ.innerHTML = "EZ";
-    row.appendChild(EZ);
-    
-    let NM = document.createElement('th');
-    NM.innerHTML = "NM";
-    row.appendChild(NM);
-    
-    let HD = document.createElement('th');
-    HD.innerHTML = "HD";
-    row.appendChild(HD);
-    
-    let SHD = document.createElement('th');
-    SHD.innerHTML = "SHD";
-    row.appendChild(SHD);
+    let col1 = document.createElement('th');
+    let col2 = document.createElement('th');
+    let col3 = document.createElement('th');
+    let col4 = document.createElement('th');
+
+    if (document.getElementById('key4').checked
+    || document.getElementById('key5').checked
+    || document.getElementById('key6').checked
+    || document.getElementById('key8').checked) {
+        col1.innerHTML = "EZ";
+        col2.innerHTML = "NM";
+        col3.innerHTML = "HD";
+        col4.innerHTML = "SHD";
+    } else if (document.getElementById('easy').checked
+    || document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('superhard').checked) {
+        col1.innerHTML = "4K";
+        col2.innerHTML = "5K";
+        col3.innerHTML = "6K";
+        col4.innerHTML = "8K";
+    }
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+    row.appendChild(col4);
 
     thead.appendChild(row);
 
@@ -160,55 +174,79 @@ function showName(paramName) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        if (!document.getElementById('key8').checked) {
-            BSC = document.createElement('td');
+        if (document.getElementById('key4').checked
+        || document.getElementById('key5').checked
+        || document.getElementById('key6').checked) {
+                BSC = document.createElement('td');
             BSC.className = 'difficulty';
         }
 
-        EZ = document.createElement('td');
-        EZ.className = 'difficulty';
+        col1 = document.createElement('td');
+        col1.className = 'difficulty';
 
-        NM = document.createElement('td');
-        NM.className = 'difficulty';
+        col2 = document.createElement('td');
+        col2.className = 'difficulty';
 
-        HD = document.createElement('td');
-        HD.className = 'difficulty';
+        col3 = document.createElement('td');
+        col3.className = 'difficulty';
 
-        SHD = document.createElement('td');
-        SHD.className = 'difficulty';
+        col4 = document.createElement('td');
+        col4.className = 'difficulty';
 
         if (document.getElementById('key4').checked) {
             BSC.innerHTML = (iterator.BSC4 === null) ? ' ' : `${iterator.BSC4}`;
-            EZ.innerHTML = (iterator.EZ4 === null) ? ' ' : `${iterator.EZ4}`;
-            NM.innerHTML = (iterator.NM4 === null) ? ' ' : `${iterator.NM4}`;
-            HD.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
-            SHD.innerHTML = (iterator.SHD4 === null) ? ' ' : `${iterator.SHD4}`;
+            col1.innerHTML = (iterator.EZ4 === null) ? ' ' : `${iterator.EZ4}`;
+            col2.innerHTML = (iterator.NM4 === null) ? ' ' : `${iterator.NM4}`;
+            col3.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col4.innerHTML = (iterator.SHD4 === null) ? ' ' : `${iterator.SHD4}`;
         } else if (document.getElementById('key5').checked) {
             BSC.innerHTML = (iterator.BSC5 === null) ? ' ' : `${iterator.BSC5}`;
-            EZ.innerHTML = (iterator.EZ5 === null) ? ' ' : `${iterator.EZ5}`;
-            NM.innerHTML = (iterator.NM5 === null) ? ' ' : `${iterator.NM5}`;
-            HD.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
-            SHD.innerHTML = (iterator.SHD5 === null) ? ' ' : `${iterator.SHD5}`;
+            col1.innerHTML = (iterator.EZ5 === null) ? ' ' : `${iterator.EZ5}`;
+            col2.innerHTML = (iterator.NM5 === null) ? ' ' : `${iterator.NM5}`;
+            col3.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col4.innerHTML = (iterator.SHD5 === null) ? ' ' : `${iterator.SHD5}`;
         } else if (document.getElementById('key6').checked) {
             BSC.innerHTML = (iterator.BSC6 === null) ? ' ' : `${iterator.BSC6}`;
-            EZ.innerHTML = (iterator.EZ6 === null) ? ' ' : `${iterator.EZ6}`;
-            NM.innerHTML = (iterator.NM6 === null) ? ' ' : `${iterator.NM6}`;
-            HD.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
-            SHD.innerHTML = (iterator.SHD6 === null) ? ' ' : `${iterator.SHD6}`;
+            col1.innerHTML = (iterator.EZ6 === null) ? ' ' : `${iterator.EZ6}`;
+            col2.innerHTML = (iterator.NM6 === null) ? ' ' : `${iterator.NM6}`;
+            col3.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col4.innerHTML = (iterator.SHD6 === null) ? ' ' : `${iterator.SHD6}`;
         } else if (document.getElementById('key8').checked) {
-            EZ.innerHTML = (iterator.EZ8 === null) ? ' ' : `${iterator.EZ8}`;
-            NM.innerHTML = (iterator.NM8 === null) ? ' ' : `${iterator.NM8}`;
-            HD.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
-            SHD.innerHTML = (iterator.SHD8 === null) ? ' ' : `${iterator.SHD8}`;
+            col1.innerHTML = (iterator.EZ8 === null) ? ' ' : `${iterator.EZ8}`;
+            col2.innerHTML = (iterator.NM8 === null) ? ' ' : `${iterator.NM8}`;
+            col3.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+            col4.innerHTML = (iterator.SHD8 === null) ? ' ' : `${iterator.SHD8}`;
+        } else if (document.getElementById('easy').checked) {
+            col1.innerHTML = (iterator.EZ4 === null) ? ' ' : `${iterator.EZ4}`;
+            col2.innerHTML = (iterator.EZ5 === null) ? ' ' : `${iterator.EZ5}`;
+            col3.innerHTML = (iterator.EZ6 === null) ? ' ' : `${iterator.EZ6}`;
+            col4.innerHTML = (iterator.EZ8 === null) ? ' ' : `${iterator.EZ8}`;
+        } else if (document.getElementById('normal').checked) {
+            col1.innerHTML = (iterator.NM4 === null) ? ' ' : `${iterator.NM4}`;
+            col2.innerHTML = (iterator.NM5 === null) ? ' ' : `${iterator.NM5}`;
+            col3.innerHTML = (iterator.NM6 === null) ? ' ' : `${iterator.NM6}`;
+            col4.innerHTML = (iterator.NM8 === null) ? ' ' : `${iterator.NM8}`;
+        } else if (document.getElementById('hard').checked) {
+            col1.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col2.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col3.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col4.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+        } else if (document.getElementById('superhard').checked) {
+            col1.innerHTML = (iterator.SHD4 === null) ? ' ' : `${iterator.SHD4}`;
+            col2.innerHTML = (iterator.SHD5 === null) ? ' ' : `${iterator.SHD5}`;
+            col3.innerHTML = (iterator.SHD6 === null) ? ' ' : `${iterator.SHD6}`;
+            col4.innerHTML = (iterator.SHD8 === null) ? ' ' : `${iterator.SHD8}`;
         }
 
-        if (!document.getElementById('key8').checked) {
-            row.appendChild(BSC);
+        if (document.getElementById('key4').checked
+        || document.getElementById('key5').checked
+        || document.getElementById('key6').checked) {
+                row.appendChild(BSC);
         }
-        row.appendChild(EZ);
-        row.appendChild(NM);
-        row.appendChild(HD);
-        row.appendChild(SHD);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        row.appendChild(col4);
 
         tbody.appendChild(row);
     }
@@ -260,27 +298,41 @@ function showSeries(paramVersion) {
     row.appendChild(BPM);
     
     let BSC;
-    if (!document.getElementById('key8').checked) {
+    if (document.getElementById('key4').checked
+    || document.getElementById('key5').checked
+    || document.getElementById('key6').checked) {
         BSC = document.createElement('th');
         BSC.innerHTML = "BSC";
         row.appendChild(BSC);
     }
     
-    let EZ = document.createElement('th');
-    EZ.innerHTML = "EZ";
-    row.appendChild(EZ);
-    
-    let NM = document.createElement('th');
-    NM.innerHTML = "NM";
-    row.appendChild(NM);
-    
-    let HD = document.createElement('th');
-    HD.innerHTML = "HD";
-    row.appendChild(HD);
-    
-    let SHD = document.createElement('th');
-    SHD.innerHTML = "SHD";
-    row.appendChild(SHD);
+    let col1 = document.createElement('th');
+    let col2 = document.createElement('th');
+    let col3 = document.createElement('th');
+    let col4 = document.createElement('th');
+
+    if (document.getElementById('key4').checked
+    || document.getElementById('key5').checked
+    || document.getElementById('key6').checked
+    || document.getElementById('key8').checked) {
+        col1.innerHTML = "EZ";
+        col2.innerHTML = "NM";
+        col3.innerHTML = "HD";
+        col4.innerHTML = "SHD";
+    } else if (document.getElementById('easy').checked
+    || document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('superhard').checked) {
+        col1.innerHTML = "4K";
+        col2.innerHTML = "5K";
+        col3.innerHTML = "6K";
+        col4.innerHTML = "8K";
+    }
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+    row.appendChild(col4);
 
     thead.appendChild(row);
 
@@ -302,55 +354,79 @@ function showSeries(paramVersion) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        if (!document.getElementById('key8').checked) {
-            BSC = document.createElement('td');
+        if (document.getElementById('key4').checked
+        || document.getElementById('key5').checked
+        || document.getElementById('key6').checked) {
+                BSC = document.createElement('td');
             BSC.className = 'difficulty';
         }
 
-        EZ = document.createElement('td');
-        EZ.className = 'difficulty';
+        col1 = document.createElement('td');
+        col1.className = 'difficulty';
 
-        NM = document.createElement('td');
-        NM.className = 'difficulty';
+        col2 = document.createElement('td');
+        col2.className = 'difficulty';
 
-        HD = document.createElement('td');
-        HD.className = 'difficulty';
+        col3 = document.createElement('td');
+        col3.className = 'difficulty';
 
-        SHD = document.createElement('td');
-        SHD.className = 'difficulty';
+        col4 = document.createElement('td');
+        col4.className = 'difficulty';
 
         if (document.getElementById('key4').checked) {
             BSC.innerHTML = (iterator.BSC4 === null) ? ' ' : `${iterator.BSC4}`;
-            EZ.innerHTML = (iterator.EZ4 === null) ? ' ' : `${iterator.EZ4}`;
-            NM.innerHTML = (iterator.NM4 === null) ? ' ' : `${iterator.NM4}`;
-            HD.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
-            SHD.innerHTML = (iterator.SHD4 === null) ? ' ' : `${iterator.SHD4}`;
+            col1.innerHTML = (iterator.EZ4 === null) ? ' ' : `${iterator.EZ4}`;
+            col2.innerHTML = (iterator.NM4 === null) ? ' ' : `${iterator.NM4}`;
+            col3.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col4.innerHTML = (iterator.SHD4 === null) ? ' ' : `${iterator.SHD4}`;
         } else if (document.getElementById('key5').checked) {
             BSC.innerHTML = (iterator.BSC5 === null) ? ' ' : `${iterator.BSC5}`;
-            EZ.innerHTML = (iterator.EZ5 === null) ? ' ' : `${iterator.EZ5}`;
-            NM.innerHTML = (iterator.NM5 === null) ? ' ' : `${iterator.NM5}`;
-            HD.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
-            SHD.innerHTML = (iterator.SHD5 === null) ? ' ' : `${iterator.SHD5}`;
+            col1.innerHTML = (iterator.EZ5 === null) ? ' ' : `${iterator.EZ5}`;
+            col2.innerHTML = (iterator.NM5 === null) ? ' ' : `${iterator.NM5}`;
+            col3.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col4.innerHTML = (iterator.SHD5 === null) ? ' ' : `${iterator.SHD5}`;
         } else if (document.getElementById('key6').checked) {
             BSC.innerHTML = (iterator.BSC6 === null) ? ' ' : `${iterator.BSC6}`;
-            EZ.innerHTML = (iterator.EZ6 === null) ? ' ' : `${iterator.EZ6}`;
-            NM.innerHTML = (iterator.NM6 === null) ? ' ' : `${iterator.NM6}`;
-            HD.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
-            SHD.innerHTML = (iterator.SHD6 === null) ? ' ' : `${iterator.SHD6}`;
+            col1.innerHTML = (iterator.EZ6 === null) ? ' ' : `${iterator.EZ6}`;
+            col2.innerHTML = (iterator.NM6 === null) ? ' ' : `${iterator.NM6}`;
+            col3.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col4.innerHTML = (iterator.SHD6 === null) ? ' ' : `${iterator.SHD6}`;
         } else if (document.getElementById('key8').checked) {
-            EZ.innerHTML = (iterator.EZ8 === null) ? ' ' : `${iterator.EZ8}`;
-            NM.innerHTML = (iterator.NM8 === null) ? ' ' : `${iterator.NM8}`;
-            HD.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
-            SHD.innerHTML = (iterator.SHD8 === null) ? ' ' : `${iterator.SHD8}`;
+            col1.innerHTML = (iterator.EZ8 === null) ? ' ' : `${iterator.EZ8}`;
+            col2.innerHTML = (iterator.NM8 === null) ? ' ' : `${iterator.NM8}`;
+            col3.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+            col4.innerHTML = (iterator.SHD8 === null) ? ' ' : `${iterator.SHD8}`;
+        } else if (document.getElementById('easy').checked) {
+            col1.innerHTML = (iterator.EZ4 === null) ? ' ' : `${iterator.EZ4}`;
+            col2.innerHTML = (iterator.EZ5 === null) ? ' ' : `${iterator.EZ5}`;
+            col3.innerHTML = (iterator.EZ6 === null) ? ' ' : `${iterator.EZ6}`;
+            col4.innerHTML = (iterator.EZ8 === null) ? ' ' : `${iterator.EZ8}`;
+        } else if (document.getElementById('normal').checked) {
+            col1.innerHTML = (iterator.NM4 === null) ? ' ' : `${iterator.NM4}`;
+            col2.innerHTML = (iterator.NM5 === null) ? ' ' : `${iterator.NM5}`;
+            col3.innerHTML = (iterator.NM6 === null) ? ' ' : `${iterator.NM6}`;
+            col4.innerHTML = (iterator.NM8 === null) ? ' ' : `${iterator.NM8}`;
+        } else if (document.getElementById('hard').checked) {
+            col1.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col2.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col3.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col4.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+        } else if (document.getElementById('superhard').checked) {
+            col1.innerHTML = (iterator.SHD4 === null) ? ' ' : `${iterator.SHD4}`;
+            col2.innerHTML = (iterator.SHD5 === null) ? ' ' : `${iterator.SHD5}`;
+            col3.innerHTML = (iterator.SHD6 === null) ? ' ' : `${iterator.SHD6}`;
+            col4.innerHTML = (iterator.SHD8 === null) ? ' ' : `${iterator.SHD8}`;
         }
 
-        if (!document.getElementById('key8').checked) {
-            row.appendChild(BSC);
+        if (document.getElementById('key4').checked
+        || document.getElementById('key5').checked
+        || document.getElementById('key6').checked) {
+                row.appendChild(BSC);
         }
-        row.appendChild(EZ);
-        row.appendChild(NM);
-        row.appendChild(HD);
-        row.appendChild(SHD);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        row.appendChild(col4);
 
         tbody.appendChild(row);
     }
@@ -397,7 +473,18 @@ function showLevel(level) {
     }
 
     // 제목 설정
-    document.getElementById('section').innerText = `레벨: ${level} [${arr.length}]`;
+    if (document.getElementById('key4').checked
+    || document.getElementById('key5').checked
+    || document.getElementById('key6').checked
+    || document.getElementById('key8').checked) {
+        document.getElementById('section').innerText = `레벨: ${level} [${arr.length}]`;
+    } else if (document.getElementById('easy').checked
+    || document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('superhard').checked) {
+        document.getElementById('section').innerText = `레벨별 검색에서는 버튼별 보기를 눌러주세요.`;
+        return;
+    }
 
     // 테이블 생성하고 내용 채우기
     let table = document.createElement('table');
@@ -430,27 +517,29 @@ function showLevel(level) {
     row.appendChild(BPM);
     
     let BSC;
-    if (!document.getElementById('key8').checked) {
+    if (document.getElementById('key4').checked
+    || document.getElementById('key5').checked
+    || document.getElementById('key6').checked) {
         BSC = document.createElement('th');
         BSC.innerHTML = "BSC";
         row.appendChild(BSC);
     }
     
-    let EZ = document.createElement('th');
-    EZ.innerHTML = "EZ";
-    row.appendChild(EZ);
+    let col1 = document.createElement('th');
+    col1.innerHTML = "EZ";
+    row.appendChild(col1);
     
-    let NM = document.createElement('th');
-    NM.innerHTML = "NM";
-    row.appendChild(NM);
+    let col2 = document.createElement('th');
+    col2.innerHTML = "NM";
+    row.appendChild(col2);
     
-    let HD = document.createElement('th');
-    HD.innerHTML = "HD";
-    row.appendChild(HD);
+    let col3 = document.createElement('th');
+    col3.innerHTML = "HD";
+    row.appendChild(col3);
     
-    let SHD = document.createElement('th');
-    SHD.innerHTML = "SHD";
-    row.appendChild(SHD);
+    let col4 = document.createElement('th');
+    col4.innerHTML = "SHD";
+    row.appendChild(col4);
 
     thead.appendChild(row);
 
@@ -476,55 +565,59 @@ function showLevel(level) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        if (!document.getElementById('key8').checked) {
+        if (document.getElementById('key4').checked
+        || document.getElementById('key5').checked
+        || document.getElementById('key6').checked) {
             BSC = document.createElement('td');
             BSC.className = 'difficulty';
         }
 
-        EZ = document.createElement('td');
-        EZ.className = 'difficulty';
+        col1 = document.createElement('td');
+        col1.className = 'difficulty';
 
-        NM = document.createElement('td');
-        NM.className = 'difficulty';
+        col2 = document.createElement('td');
+        col2.className = 'difficulty';
 
-        HD = document.createElement('td');
-        HD.className = 'difficulty';
+        col3 = document.createElement('td');
+        col3.className = 'difficulty';
 
-        SHD = document.createElement('td');
-        SHD.className = 'difficulty';
+        col4 = document.createElement('td');
+        col4.className = 'difficulty';
 
         if (document.getElementById('key4').checked) {
             BSC.innerHTML = (iterator.BSC4 === level) ? `${iterator.BSC4}` : ' ';
-            EZ.innerHTML = (iterator.EZ4 === level) ? `${iterator.EZ4}` : ' ';
-            NM.innerHTML = (iterator.NM4 === level) ? `${iterator.NM4}` : ' ';
-            HD.innerHTML = (iterator.HD4 === level) ? `${iterator.HD4}` : ' ';
-            SHD.innerHTML = (iterator.SHD4 === level) ? `${iterator.SHD4}` : ' ';
+            col1.innerHTML = (iterator.EZ4 === level) ? `${iterator.EZ4}` : ' ';
+            col2.innerHTML = (iterator.NM4 === level) ? `${iterator.NM4}` : ' ';
+            col3.innerHTML = (iterator.HD4 === level) ? `${iterator.HD4}` : ' ';
+            col4.innerHTML = (iterator.SHD4 === level) ? `${iterator.SHD4}` : ' ';
         } else if (document.getElementById('key5').checked) {
             BSC.innerHTML = (iterator.BSC5 === level) ? `${iterator.BSC5}` : ' ';
-            EZ.innerHTML = (iterator.EZ5 === level) ? `${iterator.EZ5}` : ' ';
-            NM.innerHTML = (iterator.NM5 === level) ? `${iterator.NM5}` : ' ';
-            HD.innerHTML = (iterator.HD5 === level) ? `${iterator.HD5}` : ' ';
-            SHD.innerHTML = (iterator.SHD5 === level) ? `${iterator.SHD5}` : ' ';
+            col1.innerHTML = (iterator.EZ5 === level) ? `${iterator.EZ5}` : ' ';
+            col2.innerHTML = (iterator.NM5 === level) ? `${iterator.NM5}` : ' ';
+            col3.innerHTML = (iterator.HD5 === level) ? `${iterator.HD5}` : ' ';
+            col4.innerHTML = (iterator.SHD5 === level) ? `${iterator.SHD5}` : ' ';
         } else if (document.getElementById('key6').checked) {
             BSC.innerHTML = (iterator.BSC6 === level) ? `${iterator.BSC6}` : ' ';
-            EZ.innerHTML = (iterator.EZ6 === level) ? `${iterator.EZ6}` : ' ';
-            NM.innerHTML = (iterator.NM6 === level) ? `${iterator.NM6}` : ' ';
-            HD.innerHTML = (iterator.HD6 === level) ? `${iterator.HD6}` : ' ';
-            SHD.innerHTML = (iterator.SHD6 === level) ? `${iterator.SHD6}` : ' ';
+            col1.innerHTML = (iterator.EZ6 === level) ? `${iterator.EZ6}` : ' ';
+            col2.innerHTML = (iterator.NM6 === level) ? `${iterator.NM6}` : ' ';
+            col3.innerHTML = (iterator.HD6 === level) ? `${iterator.HD6}` : ' ';
+            col4.innerHTML = (iterator.SHD6 === level) ? `${iterator.SHD6}` : ' ';
         } else if (document.getElementById('key8').checked) {
-            EZ.innerHTML = (iterator.EZ8 === level) ? `${iterator.EZ8}` : ' ';
-            NM.innerHTML = (iterator.NM8 === level) ? `${iterator.NM8}` : ' ';
-            HD.innerHTML = (iterator.HD8 === level) ? `${iterator.HD8}` : ' ';
-            SHD.innerHTML = (iterator.SHD8 === level) ? `${iterator.SHD8}` : ' ';
+            col1.innerHTML = (iterator.EZ8 === level) ? `${iterator.EZ8}` : ' ';
+            col2.innerHTML = (iterator.NM8 === level) ? `${iterator.NM8}` : ' ';
+            col3.innerHTML = (iterator.HD8 === level) ? `${iterator.HD8}` : ' ';
+            col4.innerHTML = (iterator.SHD8 === level) ? `${iterator.SHD8}` : ' ';
         }
 
-        if (!document.getElementById('key8').checked) {
+        if (document.getElementById('key4').checked
+        || document.getElementById('key5').checked
+        || document.getElementById('key6').checked) {
             row.appendChild(BSC);
         }
-        row.appendChild(EZ);
-        row.appendChild(NM);
-        row.appendChild(HD);
-        row.appendChild(SHD);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        row.appendChild(col4);
 
         tbody.appendChild(row);
     }

@@ -60,21 +60,33 @@ function showName(paramName) {
     BPM.innerHTML = "BPM";
     row.appendChild(BPM);
     
-    let NM = document.createElement('th');
-    NM.innerHTML = "NM";
-    row.appendChild(NM);
-    
-    let HD = document.createElement('th');
-    HD.innerHTML = "HD";
-    row.appendChild(HD);
-    
-    let MX = document.createElement('th');
-    MX.innerHTML = "MX";
-    row.appendChild(MX);
-    
-    let SC = document.createElement('th');
-    SC.innerHTML = "SC";
-    row.appendChild(SC);
+    let col1 = document.createElement('th');
+    let col2 = document.createElement('th');
+    let col3 = document.createElement('th');
+    let col4 = document.createElement('th');
+
+    if (document.getElementById('button4').checked
+    || document.getElementById('button5').checked
+    || document.getElementById('button6').checked
+    || document.getElementById('button8').checked) {
+        col1.innerHTML = "NM";
+        col2.innerHTML = "HD";
+        col3.innerHTML = "MX";
+        col4.innerHTML = "SC";
+    } else if (document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('maximum').checked
+    || document.getElementById('special').checked) {
+        col1.innerHTML = "4B";
+        col2.innerHTML = "5B";
+        col3.innerHTML = "6B";
+        col4.innerHTML = "8B";
+    }
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+    row.appendChild(col4);
 
     thead.appendChild(row);
 
@@ -100,44 +112,64 @@ function showName(paramName) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        NM = document.createElement('td');
-        NM.className = 'difficulty';
+        col1 = document.createElement('td');
+        col1.className = 'difficulty';
 
-        HD = document.createElement('td');
-        HD.className = 'difficulty';
+        col2 = document.createElement('td');
+        col2.className = 'difficulty';
 
-        MX = document.createElement('td');
-        MX.className = 'difficulty';
+        col3 = document.createElement('td');
+        col3.className = 'difficulty';
 
-        SC = document.createElement('td');
-        SC.className = 'difficulty';
+        col4 = document.createElement('td');
+        col4.className = 'difficulty';
 
         if (document.getElementById('button4').checked) {
-            NM.innerHTML = `${iterator.NM4}`;
-            HD.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
-            MX.innerHTML = (iterator.MX4 === null) ? ' ' : `${iterator.MX4}`;
-            SC.innerHTML = (iterator.SC4 === null) ? ' ' : `${iterator.SC4}`;
+            col1.innerHTML = `${iterator.NM4}`;
+            col2.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col3.innerHTML = (iterator.MX4 === null) ? ' ' : `${iterator.MX4}`;
+            col4.innerHTML = (iterator.SC4 === null) ? ' ' : `${iterator.SC4}`;
         } else if (document.getElementById('button5').checked) {
-            NM.innerHTML = `${iterator.NM5}`;
-            HD.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
-            MX.innerHTML = (iterator.MX5 === null) ? ' ' : `${iterator.MX5}`;
-            SC.innerHTML = (iterator.SC5 === null) ? ' ' : `${iterator.SC5}`;
+            col1.innerHTML = `${iterator.NM5}`;
+            col2.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col3.innerHTML = (iterator.MX5 === null) ? ' ' : `${iterator.MX5}`;
+            col4.innerHTML = (iterator.SC5 === null) ? ' ' : `${iterator.SC5}`;
         } else if (document.getElementById('button6').checked) {
-            NM.innerHTML = `${iterator.NM6}`;
-            HD.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
-            MX.innerHTML = (iterator.MX6 === null) ? ' ' : `${iterator.MX6}`;
-            SC.innerHTML = (iterator.SC6 === null) ? ' ' : `${iterator.SC6}`;
+            col1.innerHTML = `${iterator.NM6}`;
+            col2.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col3.innerHTML = (iterator.MX6 === null) ? ' ' : `${iterator.MX6}`;
+            col4.innerHTML = (iterator.SC6 === null) ? ' ' : `${iterator.SC6}`;
         } else if (document.getElementById('button8').checked) {
-            NM.innerHTML = `${iterator.NM8}`;
-            HD.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
-            MX.innerHTML = (iterator.MX8 === null) ? ' ' : `${iterator.MX8}`;
-            SC.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
+            col1.innerHTML = `${iterator.NM8}`;
+            col2.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+            col3.innerHTML = (iterator.MX8 === null) ? ' ' : `${iterator.MX8}`;
+            col4.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
+        } else if (document.getElementById('normal').checked) {
+            col1.innerHTML = `${iterator.NM4}`;
+            col2.innerHTML = `${iterator.NM5}`;
+            col3.innerHTML = `${iterator.NM6}`;
+            col4.innerHTML = `${iterator.NM8}`;
+        } else if (document.getElementById('hard').checked) {
+            col1.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col2.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col3.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col4.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+        } else if (document.getElementById('maximum').checked) {
+            col1.innerHTML = (iterator.MX4 === null) ? ' ' : `${iterator.MX4}`;
+            col2.innerHTML = (iterator.MX5 === null) ? ' ' : `${iterator.MX5}`;
+            col3.innerHTML = (iterator.MX6 === null) ? ' ' : `${iterator.MX6}`;
+            col4.innerHTML = (iterator.MX8 === null) ? ' ' : `${iterator.MX8}`;
+        } else if (document.getElementById('special').checked) {
+            col1.innerHTML = (iterator.SC4 === null) ? ' ' : `${iterator.SC4}`;
+            col2.innerHTML = (iterator.SC5 === null) ? ' ' : `${iterator.SC5}`;
+            col3.innerHTML = (iterator.SC6 === null) ? ' ' : `${iterator.SC6}`;
+            col4.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
         }
 
-        row.appendChild(NM);
-        row.appendChild(HD);
-        row.appendChild(MX);
-        row.appendChild(SC);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        row.appendChild(col4);
 
         tbody.appendChild(row);
     }
@@ -200,21 +232,33 @@ function showVersion(paramVersion) {
     BPM.innerHTML = "BPM";
     row.appendChild(BPM);
     
-    let NM = document.createElement('th');
-    NM.innerHTML = "NM";
-    row.appendChild(NM);
-    
-    let HD = document.createElement('th');
-    HD.innerHTML = "HD";
-    row.appendChild(HD);
-    
-    let MX = document.createElement('th');
-    MX.innerHTML = "MX";
-    row.appendChild(MX);
-    
-    let SC = document.createElement('th');
-    SC.innerHTML = "SC";
-    row.appendChild(SC);
+    let col1 = document.createElement('th');
+    let col2 = document.createElement('th');
+    let col3 = document.createElement('th');
+    let col4 = document.createElement('th');
+
+    if (document.getElementById('button4').checked
+    || document.getElementById('button5').checked
+    || document.getElementById('button6').checked
+    || document.getElementById('button8').checked) {
+        col1.innerHTML = "NM";
+        col2.innerHTML = "HD";
+        col3.innerHTML = "MX";
+        col4.innerHTML = "SC";
+    } else if (document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('maximum').checked
+    || document.getElementById('special').checked) {
+        col1.innerHTML = "4B";
+        col2.innerHTML = "5B";
+        col3.innerHTML = "6B";
+        col4.innerHTML = "8B";
+    }
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+    row.appendChild(col4);
 
     thead.appendChild(row);
 
@@ -236,44 +280,64 @@ function showVersion(paramVersion) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        NM = document.createElement('td');
-        NM.className = 'difficulty';
+        col1 = document.createElement('td');
+        col1.className = 'difficulty';
 
-        HD = document.createElement('td');
-        HD.className = 'difficulty';
+        col2 = document.createElement('td');
+        col2.className = 'difficulty';
 
-        MX = document.createElement('td');
-        MX.className = 'difficulty';
+        col3 = document.createElement('td');
+        col3.className = 'difficulty';
 
-        SC = document.createElement('td');
-        SC.className = 'difficulty';
+        col4 = document.createElement('td');
+        col4.className = 'difficulty';
 
         if (document.getElementById('button4').checked) {
-            NM.innerHTML = `${iterator.NM4}`;
-            HD.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
-            MX.innerHTML = (iterator.MX4 === null) ? ' ' : `${iterator.MX4}`;
-            SC.innerHTML = (iterator.SC4 === null) ? ' ' : `${iterator.SC4}`;
+            col1.innerHTML = `${iterator.NM4}`;
+            col2.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col3.innerHTML = (iterator.MX4 === null) ? ' ' : `${iterator.MX4}`;
+            col4.innerHTML = (iterator.SC4 === null) ? ' ' : `${iterator.SC4}`;
         } else if (document.getElementById('button5').checked) {
-            NM.innerHTML = `${iterator.NM5}`;
-            HD.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
-            MX.innerHTML = (iterator.MX5 === null) ? ' ' : `${iterator.MX5}`;
-            SC.innerHTML = (iterator.SC5 === null) ? ' ' : `${iterator.SC5}`;
+            col1.innerHTML = `${iterator.NM5}`;
+            col2.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col3.innerHTML = (iterator.MX5 === null) ? ' ' : `${iterator.MX5}`;
+            col4.innerHTML = (iterator.SC5 === null) ? ' ' : `${iterator.SC5}`;
         } else if (document.getElementById('button6').checked) {
-            NM.innerHTML = `${iterator.NM6}`;
-            HD.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
-            MX.innerHTML = (iterator.MX6 === null) ? ' ' : `${iterator.MX6}`;
-            SC.innerHTML = (iterator.SC6 === null) ? ' ' : `${iterator.SC6}`;
+            col1.innerHTML = `${iterator.NM6}`;
+            col2.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col3.innerHTML = (iterator.MX6 === null) ? ' ' : `${iterator.MX6}`;
+            col4.innerHTML = (iterator.SC6 === null) ? ' ' : `${iterator.SC6}`;
         } else if (document.getElementById('button8').checked) {
-            NM.innerHTML = `${iterator.NM8}`;
-            HD.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
-            MX.innerHTML = (iterator.MX8 === null) ? ' ' : `${iterator.MX8}`;
-            SC.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
+            col1.innerHTML = `${iterator.NM8}`;
+            col2.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+            col3.innerHTML = (iterator.MX8 === null) ? ' ' : `${iterator.MX8}`;
+            col4.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
+        } else if (document.getElementById('normal').checked) {
+            col1.innerHTML = `${iterator.NM4}`;
+            col2.innerHTML = `${iterator.NM5}`;
+            col3.innerHTML = `${iterator.NM6}`;
+            col4.innerHTML = `${iterator.NM8}`;
+        } else if (document.getElementById('hard').checked) {
+            col1.innerHTML = (iterator.HD4 === null) ? ' ' : `${iterator.HD4}`;
+            col2.innerHTML = (iterator.HD5 === null) ? ' ' : `${iterator.HD5}`;
+            col3.innerHTML = (iterator.HD6 === null) ? ' ' : `${iterator.HD6}`;
+            col4.innerHTML = (iterator.HD8 === null) ? ' ' : `${iterator.HD8}`;
+        } else if (document.getElementById('maximum').checked) {
+            col1.innerHTML = (iterator.MX4 === null) ? ' ' : `${iterator.MX4}`;
+            col2.innerHTML = (iterator.MX5 === null) ? ' ' : `${iterator.MX5}`;
+            col3.innerHTML = (iterator.MX6 === null) ? ' ' : `${iterator.MX6}`;
+            col4.innerHTML = (iterator.MX8 === null) ? ' ' : `${iterator.MX8}`;
+        } else if (document.getElementById('special').checked) {
+            col1.innerHTML = (iterator.SC4 === null) ? ' ' : `${iterator.SC4}`;
+            col2.innerHTML = (iterator.SC5 === null) ? ' ' : `${iterator.SC5}`;
+            col3.innerHTML = (iterator.SC6 === null) ? ' ' : `${iterator.SC6}`;
+            col4.innerHTML = (iterator.SC8 === null) ? ' ' : `${iterator.SC8}`;
         }
 
-        row.appendChild(NM);
-        row.appendChild(HD);
-        row.appendChild(MX);
-        row.appendChild(SC);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
+        row.appendChild(col4);
 
         tbody.appendChild(row);
     }
@@ -313,7 +377,19 @@ function showLevel(level) {
     }
 
     // 제목 설정
-    document.getElementById('section').innerText = `정규 난이도: ${level} [${arr.length}]`;
+    if (document.getElementById('button4').checked
+    || document.getElementById('button5').checked
+    || document.getElementById('button6').checked
+    || document.getElementById('button8').checked) {
+        document.getElementById('section').innerText = `정규 난이도: ${level} [${arr.length}]`;
+    } else if (document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('maximum').checked
+    || document.getElementById('special').checked) {
+        document.getElementById('section').innerText = `레벨별 검색에서는 버튼별 보기를 눌러주세요.`;
+        return;
+    }
+
 
     // 테이블 생성하고 내용 채우기
     let table = document.createElement('table');
@@ -345,17 +421,17 @@ function showLevel(level) {
     BPM.innerHTML = "BPM";
     row.appendChild(BPM);
     
-    let NM = document.createElement('th');
-    NM.innerHTML = "NM";
-    row.appendChild(NM);
+    let col1 = document.createElement('th');
+    col1.innerHTML = "NM";
+    row.appendChild(col1);
     
-    let HD = document.createElement('th');
-    HD.innerHTML = "HD";
-    row.appendChild(HD);
+    let col2 = document.createElement('th');
+    col2.innerHTML = "HD";
+    row.appendChild(col2);
     
-    let MX = document.createElement('th');
-    MX.innerHTML = "MX";
-    row.appendChild(MX);
+    let col3 = document.createElement('th');
+    col3.innerHTML = "MX";
+    row.appendChild(col3);
 
     thead.appendChild(row);
 
@@ -381,36 +457,36 @@ function showLevel(level) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        NM = document.createElement('td');
-        NM.className = 'difficulty';
+        col1 = document.createElement('td');
+        col1.className = 'difficulty';
 
-        HD = document.createElement('td');
-        HD.className = 'difficulty';
+        col2 = document.createElement('td');
+        col2.className = 'difficulty';
 
-        MX = document.createElement('td');
-        MX.className = 'difficulty';
+        col3 = document.createElement('td');
+        col3.className = 'difficulty';
 
         if (document.getElementById('button4').checked) {
-            NM.innerHTML = (iterator.NM4 == level) ? `${iterator.NM4}` : '';
-            HD.innerHTML = (iterator.HD4 == level) ? `${iterator.HD4}` : '';
-            MX.innerHTML = (iterator.MX4 == level) ? `${iterator.MX4}` : '';
+            col1.innerHTML = (iterator.NM4 == level) ? `${iterator.NM4}` : '';
+            col2.innerHTML = (iterator.HD4 == level) ? `${iterator.HD4}` : '';
+            col3.innerHTML = (iterator.MX4 == level) ? `${iterator.MX4}` : '';
         } else if (document.getElementById('button5').checked) {
-            NM.innerHTML = (iterator.NM5 == level) ? `${iterator.NM5}` : '';
-            HD.innerHTML = (iterator.HD5 == level) ? `${iterator.HD5}` : '';
-            MX.innerHTML = (iterator.MX5 == level) ? `${iterator.MX5}` : '';
+            col1.innerHTML = (iterator.NM5 == level) ? `${iterator.NM5}` : '';
+            col2.innerHTML = (iterator.HD5 == level) ? `${iterator.HD5}` : '';
+            col3.innerHTML = (iterator.MX5 == level) ? `${iterator.MX5}` : '';
         } else if (document.getElementById('button6').checked) {
-            NM.innerHTML = (iterator.NM6 == level) ? `${iterator.NM6}` : '';
-            HD.innerHTML = (iterator.HD6 == level) ? `${iterator.HD6}` : '';
-            MX.innerHTML = (iterator.MX6 == level) ? `${iterator.MX6}` : '';
+            col1.innerHTML = (iterator.NM6 == level) ? `${iterator.NM6}` : '';
+            col2.innerHTML = (iterator.HD6 == level) ? `${iterator.HD6}` : '';
+            col3.innerHTML = (iterator.MX6 == level) ? `${iterator.MX6}` : '';
         } else if (document.getElementById('button8').checked) {
-            NM.innerHTML = (iterator.NM8 == level) ? `${iterator.NM8}` : '';
-            HD.innerHTML = (iterator.HD8 == level) ? `${iterator.HD8}` : '';
-            MX.innerHTML = (iterator.MX8 == level) ? `${iterator.MX8}` : '';
+            col1.innerHTML = (iterator.NM8 == level) ? `${iterator.NM8}` : '';
+            col2.innerHTML = (iterator.HD8 == level) ? `${iterator.HD8}` : '';
+            col3.innerHTML = (iterator.MX8 == level) ? `${iterator.MX8}` : '';
         }
 
-        row.appendChild(NM);
-        row.appendChild(HD);
-        row.appendChild(MX);
+        row.appendChild(col1);
+        row.appendChild(col2);
+        row.appendChild(col3);
 
         tbody.appendChild(row);
     }
@@ -442,7 +518,18 @@ function showSCLevel(level) {
     }
 
     // 제목 설정
-    document.getElementById('section').innerText = `SC 난이도: ${level} [${arr.length}]`;
+    if (document.getElementById('button4').checked
+    || document.getElementById('button5').checked
+    || document.getElementById('button6').checked
+    || document.getElementById('button8').checked) {
+        document.getElementById('section').innerText = `SC 난이도: ${level} [${arr.length}]`;
+    } else if (document.getElementById('normal').checked
+    || document.getElementById('hard').checked
+    || document.getElementById('maximum').checked
+    || document.getElementById('special').checked) {
+        document.getElementById('section').innerText = `레벨별 검색에서는 버튼별 보기를 눌러주세요.`;
+        return;
+    }
 
     // 테이블 생성하고 내용 채우기
     let table = document.createElement('table');
@@ -474,9 +561,9 @@ function showSCLevel(level) {
     BPM.innerHTML = "BPM";
     row.appendChild(BPM);
     
-    let SC = document.createElement('th');
-    SC.innerHTML = "SC";
-    row.appendChild(SC);
+    let col = document.createElement('th');
+    col.innerHTML = "SC";
+    row.appendChild(col);
 
     thead.appendChild(row);
 
@@ -502,19 +589,21 @@ function showSCLevel(level) {
         BPM.innerHTML = (iterator.maxBPM === null) ? `${iterator.minBPM}` : `${iterator.minBPM} ~ ${iterator.maxBPM}`;
         row.appendChild(BPM);
 
-        SC = document.createElement('td');
-        SC.className = 'difficulty';
+        col = document.createElement('td');
+        col.className = 'difficulty';
 
         if (document.getElementById('button4').checked) {
-            SC.innerHTML = (iterator.SC4 == level) ? `${iterator.SC4}` : '';
+            col.innerHTML = (iterator.SC4 == level) ? `${iterator.SC4}` : '';
         } else if (document.getElementById('button5').checked) {
-            SC.innerHTML = (iterator.SC5 == level) ? `${iterator.SC5}` : '';
+            col.innerHTML = (iterator.SC5 == level) ? `${iterator.SC5}` : '';
         } else if (document.getElementById('button6').checked) {
-            SC.innerHTML = (iterator.SC6 == level) ? `${iterator.SC6}` : '';
+            col.innerHTML = (iterator.SC6 == level) ? `${iterator.SC6}` : '';
         } else if (document.getElementById('button8').checked) {
-            SC.innerHTML = (iterator.SC8 == level) ? `${iterator.SC8}` : '';
+            col.innerHTML = (iterator.SC8 == level) ? `${iterator.SC8}` : '';
+        } else {
+            document.getElementById('section').innerText = `레벨별 검색에서는 버튼별 보기를 눌러주세요.`;
         }
-        row.appendChild(SC);
+        row.appendChild(col);
 
         tbody.appendChild(row);
     }

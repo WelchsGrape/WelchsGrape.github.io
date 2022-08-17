@@ -9,9 +9,10 @@
     <body>
         <header>
             <h1>EZ2ON REBOOT : R Chart Database</h1>
-            <p>Recent Update: 2022-08-04</p>
+            <p>Recent Update: 2022-08-17</p>
         </header>
         <nav>
+            <p>패턴 검색 기준</p>
             <table>
                 <th class="name">제목</th>
                 <td class="name"><a href="javascript:void(0);" onclick="showName('#')">#</a></td>
@@ -89,12 +90,19 @@
                     <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(20)">20</a></td>
                 </tr>
             </table>
+            <p>버튼/패턴별 보기 설정</p>
             <table>
                 <tr>
                     <td><label><input type="radio" name="modes" value="4K" id="key4" onchange="removeTable()" checked>4K</label></td>
                     <td><label><input type="radio" name="modes" value="5K" id="key5" onchange="removeTable()">5K</label></td>
                     <td><label><input type="radio" name="modes" value="6K" id="key6" onchange="removeTable()">6K</label></td>
                     <td><label><input type="radio" name="modes" value="8K" id="key8" onchange="removeTable()">8K</label></td>
+                </tr>
+                <tr>
+                    <td><label><input type="radio" name="modes" value="EZ" id="easy" onchange="removeTable()">EZ</label></td>
+                    <td><label><input type="radio" name="modes" value="NM" id="normal" onchange="removeTable()">NM</label></td>
+                    <td><label><input type="radio" name="modes" value="HD" id="hard" onchange="removeTable()">HD</label></td>
+                    <td><label><input type="radio" name="modes" value="SHD" id="superhard" onchange="removeTable()">SHD</label></td>
                 </tr>
             </table>
         </nav>
