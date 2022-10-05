@@ -1,7 +1,5 @@
 body { background-color: #191919; }
-header {
-    color: white;
-}
+header { color: white; }
 table, th, td { border: 1px solid white; border-collapse: collapse; padding: 0px; }
 th { background-color: gray; width: 32px; height: 191px; }
 td { vertical-align: top;}
