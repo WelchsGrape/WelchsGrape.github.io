@@ -6,3 +6,6 @@ td { vertical-align: top;}
 td.chart { width: 120px; }
 div { background-image: url("back.png"); width: 120px; height: 191px; }
 div, div img { position: absolute; }
+table.fixed { table-layout: fixed; width: 152px; height: 192px; }
+table.fixed tr { overflow: hidden; }
+img { z-index: 2 }
