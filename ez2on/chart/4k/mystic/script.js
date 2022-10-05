@@ -10,10 +10,8 @@ document.getElementById('article').appendChild(globalTable);
 
 // 롱노트 종료 여부
 let longAlive = [false, false, false, false];
-for (let measureNo = 0; measureNo < data.length; measureNo++)
-{
-    if (measureNo % 4 == 0)
-    {
+for (let measureNo = 0; measureNo < data.length; measureNo++) {
+    if (measureNo % 4 == 0) {
         globalTd = document.createElement('td');
         globalTr.appendChild(globalTd);
     }
@@ -37,13 +35,10 @@ for (let measureNo = 0; measureNo < data.length; measureNo++)
 
     // 칩 노트 넣기
     let refArray = [data[measureNo].A2, data[measureNo].A3, data[measureNo].A5, data[measureNo].A6];
-    for (let lane = 0; lane < 4; lane++)
-    {
+    for (let lane = 0; lane < 4; lane++) {
         let bits = !refArray[lane] ? 0 : refArray[lane].length / 2;
-        for (let pos = 0; pos < bits; pos++)
-        {
-            if (refArray[lane].substring(pos * 2, (pos + 1) * 2) == '01')
-            {
+        for (let pos = 0; pos < bits; pos++) {
+            if (refArray[lane].substring(pos * 2, (pos + 1) * 2) == '01') {
                 let noteChip = document.createElement('img');
                 if (lane == 0 || lane == 3)
                     noteChip.src = 'e4w.png';
@@ -59,20 +54,14 @@ for (let measureNo = 0; measureNo < data.length; measureNo++)
     // 롱 노트 넣기
     let longPos = [0, 0, 0, 0];
     refArray = [data[measureNo].L2, data[measureNo].L3, data[measureNo].L5, data[measureNo].L6];
-    for (let lane = 0; lane < 4; lane++)
-    {
+    for (let lane = 0; lane < 4; lane++) {
         let bits = !refArray[lane] ? 0 : refArray[lane].length / 2;
-        for (let pos = 0; pos < bits; pos++)
-        {
-            if (refArray[lane].substring(pos * 2, (pos + 1) * 2) == '01')
-            {
-                if (!longAlive[lane])
-                {
+        for (let pos = 0; pos < bits; pos++) {
+            if (refArray[lane].substring(pos * 2, (pos + 1) * 2) == '01') {
+                if (!longAlive[lane]) {
                     longPos[lane] = pos;
                     longAlive[lane] = true;
-                }
-                else
-                {
+                } else {
                     longAlive[lane] = false;
 
                     let noteLong = document.createElement('img');
@@ -87,8 +76,7 @@ for (let measureNo = 0; measureNo < data.length; measureNo++)
             }
 
             // 다음 마디까지 롱노트가 이어질 때
-            if ((pos == bits - 1) && longAlive[lane])
-            {
+            if ((pos == bits - 1) && longAlive[lane]) {
                 let noteLong = document.createElement('img');
                 if (lane == 0 || lane == 3)
                     noteLong.src = 'e4w.png';
