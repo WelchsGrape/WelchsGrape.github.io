@@ -1,3 +1,5 @@
+let measureStart = 0;
+
 let data = [
   {
     "No": 0,
