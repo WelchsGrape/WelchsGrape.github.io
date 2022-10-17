@@ -13,6 +13,8 @@ function removeTable() {
 
 function getVersionFullName(version) {
     switch (version) {
+        case 'ALL':
+            return 'ALL TRACK';
         case 'RS':
             return 'RESPECT';
         case 'VE':
