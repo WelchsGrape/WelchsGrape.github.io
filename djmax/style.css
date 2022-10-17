@@ -3,7 +3,7 @@ body {
 }
 
 h1, p, a, footer {
-    color: white;
+    color: lightgray;
 }
 
 header, nav, section, article, footer {
@@ -15,10 +15,14 @@ header, nav, section, article, footer {
 
 th, td {
     border: 1px solid gray;
-    color: white;
+    color: lightgray;
 }
 
-th.name {
+tr#hide > td {
+    border: 0px;
+}
+
+th.name th.pack th.difficulty {
     width: 100px;
 }
 
@@ -26,20 +30,12 @@ td.name {
     width: 20px;
 }
 
-th.pack {
-    width: 100px;
-}
-
 td.pack {
-    width: 150px;
-}
-
-th.difficulty {
     width: 100px;
 }
 
 td.difficulty {
-    width: 30px;
+    width: 33px;
 }
 
 .songname, .composer {

@@ -9,122 +9,205 @@
     <body>
         <header>
             <h1>DJMAX RESPECT V Chart Database</h1>
-            <p>Recent Update: 2022-09-30<br>Update Contents: 시즌 7 업데이트 내용 추가</p>
+            <p>Recent Update: 2022-10-17<br>Update Contents: 레이아웃 변경</p>
         </header>
         <nav>
             <p>패턴 검색 기준</p>
             <table>
-                <th class="name">제목</th>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('#')">#</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('A')">A</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('B')">B</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('C')">C</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('D')">D</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('E')">E</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('F')">F</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('G')">G</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('H')">H</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('I')">I</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('J')">J</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('K')">K</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('L')">L</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('M')">M</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('N')">N</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('O')">O</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('P')">P</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('Q')">Q</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('R')">R</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('S')">S</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('T')">T</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('U')">U</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('V')">V</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('W')">W</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('X')">X</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('Y')">Y</a></td>
-                <td class="name"><a href="javascript:void(0);" onclick="showName('Z')">Z</a></td>
-            </table>
-            <table>
-                <tr>
-                    <th rowspan="8" class="pack">시리즈</th>
-                    <th rowspan="8" class="pack"><a href="javascript:void(0);" onclick="showVersion('ALL TRACK')">ALL TRACK</a></th>
-                    <th rowspan="5"><a href="javascript:void(0);" onclick="showVersion('RESPECT')">RESPECT</a></th>
-                    <td class="pack"><a href="javascript:void(0);" onclick="showVersion('PORTABLE 1')">PORTABLE 1</a></td>
-                    <td class="pack"><a href="javascript:void(0);" onclick="showVersion('PORTABLE 2')">PORTABLE 2</a></td>
-                    <td class="pack"><a href="javascript:void(0);" onclick="showVersion('PORTABLE 3')">PORTABLE 3</a></td>
-                </tr>
-                <tr>
-                    <td><a href="javascript:void(0);" onclick="showVersion('TRILOGY')">TRILOGY</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('CLAZZIQUAI')">CLAZZIQUAI</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('BLACK SQUARE')">BLACK SQUARE</a></td>
-                </tr>
-                <tr>
-                    <td><a href="javascript:void(0);" onclick="showVersion('V EXTENSION 1')">V EXTENSION 1</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('V EXTENSION 2')">V EXTENSION 2</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('EMOTIONAL SENSE')">EMOTIONAL SENSE</a></td>
-                </tr>
-                <tr>
-                    <td><a href="javascript:void(0);" onclick="showVersion('TECHNIKA 1')">TECHNIKA 1</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('TECHNIKA 2')">TECHNIKA 2</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('TECHNIKA 3')">TECHNIKA 3</a></td>
-                </tr>
-                <tr>
-                    <td><a href="javascript:void(0);" onclick="showVersion('TECHNIKA T&Q')">TECHNIKA T&Q</a></td>
+                <tr id="hide">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <th rowspan="3"><a href="javascript:void(0);" onclick="showVersion('COLLABORATION')">COLLABORATION</a></th>
-                    <td><a href="javascript:void(0);" onclick="showVersion('GUILTY GEAR')">GUILTY GEAR</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('CHUNITHM')">CHUNITHM</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('CYTUS')">CYTUS</a></td>
+                    <th class="name">제목</th>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('#')">#</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('A')">A</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('B')">B</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('C')">C</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('D')">D</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('E')">E</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('F')">F</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('G')">G</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('H')">H</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('I')">I</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('J')">J</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('K')">K</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('L')">L</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('M')">M</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('N')">N</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('O')">O</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('P')">P</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('Q')">Q</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('R')">R</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('S')">S</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('T')">T</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('U')">U</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('V')">V</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('W')">W</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('X')">X</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('Y')">Y</a></td>
+                    <td colspan="3" class="name"><a href="javascript:void(0);" onclick="showName('Z')">Z</a></td>
                 </tr>
                 <tr>
-                    <td><a href="javascript:void(0);" onclick="showVersion('DEEMO')">DEEMO</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('ESTIMATE')">ESTIMATE</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('GROOVE COASTER')">GROOVE COASTER</a></td>
+                    <th colspan="7" rowspan="8" class="pack">시리즈</th>
+                    <td colspan="15" rowspan="8" class="pack"><a href="javascript:void(0);" onclick="showVersion('ALL')">ALL TRACK</a></td>
+                    <td colspan="15" class="pack">DELUXE</td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('RS')">RESPECT</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('VE1')">V EXTENSION 1</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('VE2')">V EXTENSION 2</a></td>
                 </tr>
                 <tr>
-                    <td><a href="javascript:void(0);" onclick="showVersion(`GIRLS' FRONTLINE`)">GIRLS' FRONTLINE</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('MUSE DASH')">MUSE DASH</a></td>
-                    <td><a href="javascript:void(0);" onclick="showVersion('NEXON')">NEXON</a></td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th class="difficulty">정규 난이도</th>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(1)">1</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(2)">2</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(3)">3</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(4)">4</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(5)">5</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(6)">6</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(7)">7</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(8)">8</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(9)">9</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(10)">10</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(11)">11</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(12)">12</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(13)">13</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(14)">14</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showLevel(15)">15</a></td>
+                    <td colspan="15" rowspan="4">LEGACY</td>
+                    <td colspan="15" class="pack"><a href="javascript:void(0);" onclick="showVersion('P1')">PORTABLE 1</a></td>
+                    <td colspan="15" class="pack"><a href="javascript:void(0);" onclick="showVersion('P2')">PORTABLE 2</a></td>
+                    <td colspan="15" class="pack"><a href="javascript:void(0);" onclick="showVersion('P3')">PORTABLE 3</a></td>
                 </tr>
                 <tr>
-                    <th class="difficulty">SC 난이도</th>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(1)">1</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(2)">2</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(3)">3</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(4)">4</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(5)">5</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(6)">6</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(7)">7</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(8)">8</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(9)">9</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(10)">10</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(11)">11</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(12)">12</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(13)">13</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(14)">14</a></td>
-                    <td class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(15)">15</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('TR')">TRILOGY</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('CE')">CLAZZIQUAI</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('BS')">BLACK SQUARE</a></td>
+                </tr>
+                <tr>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('T1')">TECHNIKA 1</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('T2')">TECHNIKA 2</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('T3')">TECHNIKA 3</a></td>
+                </tr>
+                <tr>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('TQ')">TECHNIKA T&Q</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('ES')">EMOTIONAL SENSE</a></td>
+                    <td colspan="15"></td>
+                </tr>
+                <tr>
+                    <td colspan="15" rowspan="3" style="font-size:small">COLLABORATION</td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('GG')">GUILTY GEAR</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('CHU')">CHUNITHM</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('CY')">CYTUS</a></td>
+                </tr>
+                <tr>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('DM')">DEEMO</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('ESTI')">ESTIMATE</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('GC')">GROOVE COASTER</a></td>
+                </tr>
+                <tr>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('GF')">GIRLS' FRONTLINE</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('MD')">MUSE DASH</a></td>
+                    <td colspan="15"><a href="javascript:void(0);" onclick="showVersion('NXN')">NEXON</a></td>
+                </tr>
+                <tr>
+                    <th colspan="7" class="difficulty">정규 난이도</th>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(1)">1</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(2)">2</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(3)">3</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(4)">4</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(5)">5</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(6)">6</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(7)">7</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(8)">8</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(9)">9</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(10)">10</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(11)">11</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(12)">12</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(13)">13</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(14)">14</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showLevel(15)">15</a></td>
+                </tr>
+                <tr>
+                    <th colspan="7" class="difficulty">SC 난이도</th>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(1)">1</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(2)">2</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(3)">3</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(4)">4</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(5)">5</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(6)">6</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(7)">7</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(8)">8</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(9)">9</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(10)">10</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(11)">11</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(12)">12</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(13)">13</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(14)">14</a></td>
+                    <td colspan="5" class="difficulty"><a href="javascript:void(0);" onclick="showSCLevel(15)">15</a></td>
                 </tr>
             </table>
             <p>버튼/패턴별 보기 설정</p>

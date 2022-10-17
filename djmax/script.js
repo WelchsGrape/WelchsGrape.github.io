@@ -1,3 +1,6 @@
+let nowSearch = null;
+let nowView = null;
+
 // 이미 만들어진 테이블을 삭제
 function removeTable() {
     document.getElementById('section').innerText = '';
@@ -8,9 +11,62 @@ function removeTable() {
     }    
 }
 
+function getVersionFullName(version) {
+    switch (version) {
+        case 'RS':
+            return 'RESPECT';
+        case 'VE':
+            return 'V EXTENSION 1';
+        case 'VE2':
+            return 'V EXTENSION 2';
+        case 'P1':
+            return 'PORTABLE 1';
+        case 'P2':
+            return 'PORTABLE 2';
+        case 'P3':
+            return 'PORTABLE 3';
+        case 'TR':
+            return 'TRILOGY';
+        case 'CE':
+            return 'CLAZZIQUAI';
+        case 'BS':
+            return 'BLACK SQUARE';
+        case 'T1':
+            return 'TECHNIKA 1';
+        case 'T2':
+            return 'TECHNIKA 2';
+        case 'T3':
+            return 'TECHNIKA 3';
+        case 'TQ':
+            return 'TECHNIKA T&Q';
+        case 'ES':
+            return 'EMOTIONAL SENSE';
+        case 'GG':
+            return 'GUILTY GEAR';
+        case 'CHU':
+            return 'CHUNITHM';
+        case 'CY':
+            return 'CYTUS';
+        case 'DM':
+            return 'DEEMO';
+        case 'ESTI':
+            return 'ESTIMATE';
+        case 'GC':
+            return 'GROOVE COASTER';
+        case 'GF':
+            return `GIRLS' FRONTLINE`;
+        case 'MD':
+            return 'MUSE DASH';
+        case 'NXN':
+            return 'NEXON';
+    }
+}
+
 // 함수 목록
 function showName(paramName) {
     removeTable();
+
+    nowSearch = paramName;
 
     let arr = [];
     const alphabet = /[a-zA-Z]/;
@@ -94,8 +150,9 @@ function showName(paramName) {
     for (const iterator of arr) {
         row = document.createElement('tr');
 
+        // 버전 출력
         version = document.createElement('td');
-        version.innerHTML = `${iterator.version}`;
+        version.innerHTML = getVersionFullName(iterator.version);
         row.appendChild(version);
 
         name = document.createElement('td');
@@ -181,30 +238,18 @@ function showVersion(paramVersion) {
     // json에서 필터한 내용을 담을 배열
     let arr = [];
     // 올 트랙일 경우 데이터를 그대로 쓴다
-    if (paramVersion == 'ALL TRACK') {
+    if (paramVersion == 'ALL') {
         arr = data;
     } else {
         for (const iterator of data) {
-            if (paramVersion == 'COLLABORATION') {  // 콜라보레이션 음악을 전부 넣는다
-                if (iterator.version == 'GUILTY GEAR' ||
-                    iterator.version == 'CHUNITHM' ||
-                    iterator.version == 'CYTUS' ||
-                    iterator.version == 'DEEMO' ||
-                    iterator.version == 'ESTIMATE' ||
-                    iterator.version == 'GROOVE COASTER' ||
-                    iterator.version == `GIRLS' FRONTLINE` ||
-                    iterator.version == 'MUSE DASH' ||
-                    iterator.version == 'NEXON') {
-                    arr.push(iterator);
-                }
-            } else if (iterator.version == paramVersion) {  // 뮤직 팩별 필터
+            if (iterator.version == paramVersion) {  // 뮤직 팩별 필터
                 arr.push(iterator);
             }
         }
     }
 
     // 제목 설정
-    document.getElementById('section').innerText = `뮤직 팩: ${paramVersion} [${arr.length}]`;
+    document.getElementById('section').innerText = `뮤직 팩: ${getVersionFullName(paramVersion)} [${arr.length}]`;
 
     // 테이블 생성하고 내용 채우기
     let table = document.createElement('table');
@@ -440,7 +485,7 @@ function showLevel(level) {
         row = document.createElement('tr');
 
         version = document.createElement('td');
-        version.innerHTML = `${iterator.version}`;
+        version.innerHTML = getVersionFullName(iterator.version);
         row.appendChild(version);
 
         name = document.createElement('td');
@@ -572,7 +617,77 @@ function showSCLevel(level) {
         row = document.createElement('tr');
 
         version = document.createElement('td');
-        version.innerHTML = `${iterator.version}`;
+        switch (iterator.version) {
+            case 'RS':
+                version.innerHTML = 'RESPECT';
+                break;
+            case 'VE':
+                version.innerHTML = 'V EXTENSION 1';
+                break;
+            case 'VE2':
+                version.innerHTML = 'V EXTENSION 2';
+                break;
+            case 'P1':
+                version.innerHTML = 'PORTABLE 1';
+                break;
+            case 'P2':
+                version.innerHTML = 'PORTABLE 2';
+                break;
+            case 'P3':
+                version.innerHTML = 'PORTABLE 3';
+                break;
+            case 'TR':
+                version.innerHTML = 'TRILOGY';
+                break;
+            case 'CE':
+                version.innerHTML = 'CLAZZIQUAI';
+                break;
+            case 'BS':
+                version.innerHTML = 'BLACK SQUARE';
+                break;
+            case 'T1':
+                version.innerHTML = 'TECHNIKA 1';
+                break;
+            case 'T2':
+                version.innerHTML = 'TECHNIKA 2';
+                break;
+            case 'T3':
+                version.innerHTML = 'TECHNIKA 3';
+                break;
+            case 'TQ':
+                version.innerHTML = 'TECHNIKA T&Q';
+                break;
+            case 'ES':
+                version.innerHTML = 'EMOTIONAL SENSE';
+                break;
+            case 'GG':
+                version.innerHTML = 'GUILTY GEAR';
+                break;
+            case 'CHU':
+                version.innerHTML = 'CHUNITHM';
+                break;
+            case 'CY':
+                version.innerHTML = 'CYTUS';
+                break;
+            case 'DM':
+                version.innerHTML = 'DEEMO';
+                break;
+            case 'ESTI':
+                version.innerHTML = 'ESTIMATE';
+                break;
+            case 'GC':
+                version.innerHTML = 'GROOVE COASTER';
+                break;
+            case 'GF':
+                version.innerHTML = `GIRLS' FRONTLINE`;
+                break;
+            case 'MD':
+                version.innerHTML = 'MUSE DASH';
+                break;
+            case 'NXN':
+                version.innerHTML = 'NEXON';
+                break;
+        }
         row.appendChild(version);
 
         name = document.createElement('td');
