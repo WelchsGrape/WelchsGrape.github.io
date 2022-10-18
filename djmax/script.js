@@ -11,6 +11,7 @@ function removeTable() {
     }    
 }
 
+// 원 시리즈 이름을 반환
 function getVersionFullName(version) {
     switch (version) {
         case 'ALL':

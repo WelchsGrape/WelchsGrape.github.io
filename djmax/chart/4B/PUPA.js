@@ -1,6 +1,6 @@
-let measureStart = 0;
+const measureStart = 0;
 
-let data = [
+ const data = [
   {
     "No": 0,
     "A1": null,
@@ -18,7 +18,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 1,
@@ -37,7 +39,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 2,
@@ -56,7 +60,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 3,
@@ -75,7 +81,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 4,
@@ -94,7 +102,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 5,
@@ -113,7 +123,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 6,
@@ -132,7 +144,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 7,
@@ -151,7 +165,9 @@ let data = [
     "L5": null,
     "L6": "00000001",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 8,
@@ -163,14 +179,16 @@ let data = [
     "A6": null,
     "A7": null,
     "A8": null,
-    "L1": "00000000000000000000000002000002",
+    "L1": null,
     "L2": "0001000000000000",
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": "0001000000000000",
-    "L7": "00000000000000000000000002000002",
-    "L8": null
+    "L7": null,
+    "L8": null,
+    "S1": "00000000000000000000000001000001",
+    "S2": "00000000000000000000000001000001"
   },
   {
     "No": 9,
@@ -189,7 +207,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 10,
@@ -208,7 +228,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 11,
@@ -227,7 +249,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 12,
@@ -246,7 +270,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 13,
@@ -265,7 +291,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 14,
@@ -284,7 +312,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 15,
@@ -303,7 +333,9 @@ let data = [
     "L5": null,
     "L6": "0000000000000001",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 16,
@@ -322,7 +354,9 @@ let data = [
     "L5": null,
     "L6": "0000000100000000",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 17,
@@ -341,7 +375,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 18,
@@ -360,7 +396,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 19,
@@ -379,7 +417,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 20,
@@ -398,7 +438,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 21,
@@ -417,7 +459,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 22,
@@ -436,7 +480,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 23,
@@ -455,7 +501,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 24,
@@ -474,7 +522,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 25,
@@ -493,7 +543,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 26,
@@ -512,7 +564,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 27,
@@ -531,7 +585,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 28,
@@ -550,7 +606,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 29,
@@ -569,7 +627,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 30,
@@ -588,7 +648,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 31,
@@ -607,7 +669,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 32,
@@ -626,7 +690,9 @@ let data = [
     "L5": null,
     "L6": "0100000000000001",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 33,
@@ -645,7 +711,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 34,
@@ -664,7 +732,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 35,
@@ -683,7 +753,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 36,
@@ -702,7 +774,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 37,
@@ -721,7 +795,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 38,
@@ -740,7 +816,9 @@ let data = [
     "L5": null,
     "L6": "00000000000000000001000000000001",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 39,
@@ -759,7 +837,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 40,
@@ -778,7 +858,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 41,
@@ -797,7 +879,9 @@ let data = [
     "L5": "00000000000000000000000100010000",
     "L6": "0000000001010000",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 42,
@@ -816,7 +900,9 @@ let data = [
     "L5": null,
     "L6": "0101000000000000",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 43,
@@ -835,7 +921,9 @@ let data = [
     "L5": "00000000000000000000000100010000",
     "L6": "0000000001010000",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 44,
@@ -854,7 +942,9 @@ let data = [
     "L5": "00000001000100000100010000000000",
     "L6": "0101000000000000",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 45,
@@ -873,7 +963,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 46,
@@ -892,7 +984,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 47,
@@ -911,7 +1005,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 48,
@@ -923,14 +1019,16 @@ let data = [
     "A6": "00000100010001000101010000000000",
     "A7": null,
     "A8": null,
-    "L1": "00000000000000000000000002000002",
+    "L1": null,
     "L2": null,
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": null,
-    "L7": "00000000000000000000000002000002",
-    "L8": null
+    "L7": null,
+    "L8": null,
+    "S1": "00000000000000000000000001000001",
+    "S2": "00000000000000000000000001000001"
   },
   {
     "No": 49,
@@ -949,7 +1047,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 50,
@@ -968,7 +1068,9 @@ let data = [
     "L5": "0000000001000001",
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 51,
@@ -987,7 +1089,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 52,
@@ -1006,7 +1110,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 53,
@@ -1025,7 +1131,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 54,
@@ -1044,7 +1152,9 @@ let data = [
     "L5": "0000000001000001",
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 55,
@@ -1063,7 +1173,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 56,
@@ -1075,14 +1187,16 @@ let data = [
     "A6": "01",
     "A7": null,
     "A8": null,
-    "L1": "02000000000200000000000000000000",
+    "L1": null,
     "L2": "00000000000000000100000000010000",
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": null,
-    "L7": "00000000000000000200000000020000",
-    "L8": null
+    "L7": null,
+    "L8": null,
+    "S1": "01000000000100000000000000000000",
+    "S2": "00000000000000000100000000010000"
   },
   {
     "No": 57,
@@ -1101,7 +1215,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 58,
@@ -1120,7 +1236,9 @@ let data = [
     "L5": "00000101",
     "L6": "00000101",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 59,
@@ -1139,7 +1257,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 60,
@@ -1158,7 +1278,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 61,
@@ -1177,7 +1299,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 62,
@@ -1196,7 +1320,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 63,
@@ -1215,7 +1341,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 64,
@@ -1227,14 +1355,16 @@ let data = [
     "A6": "00010001",
     "A7": null,
     "A8": null,
-    "L1": "02000002000000000000000000000000",
+    "L1": null,
     "L2": null,
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": "01000001000000000000000000000000",
+    "S2": null
   },
   {
     "No": 65,
@@ -1253,7 +1383,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 66,
@@ -1272,7 +1404,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 67,
@@ -1291,7 +1425,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 68,
@@ -1310,7 +1446,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 69,
@@ -1329,7 +1467,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 70,
@@ -1348,7 +1488,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 71,
@@ -1367,7 +1509,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 72,
@@ -1379,14 +1523,16 @@ let data = [
     "A6": "01000001000001000100000000000000",
     "A7": null,
     "A8": null,
-    "L1": "00000000000000000000000002000002",
+    "L1": null,
     "L2": null,
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": null,
-    "L7": "00000000000000000000000002000002",
-    "L8": null
+    "L7": null,
+    "L8": null,
+    "S1": "00000000000000000000000001000001",
+    "S2": "00000000000000000000000001000001"
   },
   {
     "No": 73,
@@ -1405,7 +1551,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 74,
@@ -1424,7 +1572,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 75,
@@ -1443,7 +1593,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 76,
@@ -1462,7 +1614,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 77,
@@ -1481,7 +1635,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 78,
@@ -1500,7 +1656,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 79,
@@ -1519,7 +1677,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 80,
@@ -1531,14 +1691,16 @@ let data = [
     "A6": "01000001000001000100000000000000",
     "A7": null,
     "A8": null,
-    "L1": "00000000000000000000000002000002",
+    "L1": null,
     "L2": null,
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": null,
-    "L7": "00000000000000000000000002000002",
-    "L8": null
+    "L7": null,
+    "L8": null,
+    "S1": "00000000000000000000000001000001",
+    "S2": "00000000000000000000000001000001"
   },
   {
     "No": 81,
@@ -1557,7 +1719,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 82,
@@ -1576,7 +1740,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 83,
@@ -1595,7 +1761,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 84,
@@ -1614,7 +1782,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 85,
@@ -1633,7 +1803,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 86,
@@ -1652,7 +1824,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 87,
@@ -1671,7 +1845,9 @@ let data = [
     "L5": null,
     "L6": "0100000000000001",
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 88,
@@ -1683,14 +1859,16 @@ let data = [
     "A6": "00010001",
     "A7": null,
     "A8": null,
-    "L1": "02000002000000000000000000000000",
+    "L1": null,
     "L2": null,
     "L3": null,
     "L4": null,
     "L5": null,
     "L6": null,
-    "L7": "02000002000000000000000000000000",
-    "L8": null
+    "L7": null,
+    "L8": null,
+    "S1": "01000001000000000000000000000000",
+    "S2": "01000001000000000000000000000000"
   },
   {
     "No": 89,
@@ -1709,7 +1887,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 90,
@@ -1728,7 +1908,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 91,
@@ -1747,7 +1929,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 92,
@@ -1766,7 +1950,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 93,
@@ -1785,7 +1971,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 94,
@@ -1804,7 +1992,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 95,
@@ -1823,7 +2013,9 @@ let data = [
     "L5": "0000000000000001",
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 96,
@@ -1842,7 +2034,9 @@ let data = [
     "L5": "01",
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 97,
@@ -1861,7 +2055,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 98,
@@ -1880,7 +2076,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 99,
@@ -1899,7 +2097,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 100,
@@ -1918,7 +2118,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 101,
@@ -1937,7 +2139,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 102,
@@ -1956,7 +2160,9 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   },
   {
     "No": 103,
@@ -1975,6 +2181,8 @@ let data = [
     "L5": null,
     "L6": null,
     "L7": null,
-    "L8": null
+    "L8": null,
+    "S1": null,
+    "S2": null
   }
 ]
