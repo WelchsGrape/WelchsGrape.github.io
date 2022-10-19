@@ -30,7 +30,7 @@ function getBlackWhite(lane) {
 }
 
 // 마디별 노트 작성
-for (let measureNo = 0; measureNo < data.length; measureNo++) {
+for (let measureNo = 1; measureNo < data.length; measureNo++) {
     // 곡마다 시작 마디를 설정하면 그 번호가 맨 아래로 가게끔 할 수 있다.
     let measureReal = measureNo - measureStart;
     if (measureReal >= 0 && measureReal % 4 == 0) {
