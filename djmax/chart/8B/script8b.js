@@ -8,9 +8,9 @@ let longAlive = [false, false, false, false, false, false,];
 
 // 노트별 참조 리소스
 let noteSide = '../side.png';
-let noteFX = 'dfx.png';
-let noteWhite = 'd8w.png';
-let noteBlack = 'd8b.png';
+let noteFX = 'fx.png';
+let noteBlack = '6b.png';
+let noteWhite = '6w.png';
 let laneWidth = 20;
 let sideWidth = 60;
 

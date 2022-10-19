@@ -1,5 +1,5 @@
 // 4/4 박자에서 한 마디를 몇 픽셀로 표기할 것인가
-const displaySize = 192;
+const displaySize = 256;
 
 // 레인별 롱 노트 종료 여부
 let sideAlive = [false, false];
@@ -7,17 +7,17 @@ let longAlive = [false, false, false, false];
 
 // 노트별 참조 리소스
 let noteSide = '../side.png';
-let noteWhite = 'd4w.png';
-let noteBlack = 'd4b.png';
+let noteBlack = '4b.png';
+let noteWhite = '4w.png';
 let laneWidth = 30;
 let sideWidth = 60;
 
 // 해당 레인이 백건반인지 흑건반인지 파악
 function getBlackWhite(lane) {
-    if (lane == 0 || lane == 3)
-        return noteWhite;
-    else
+    if (lane == 1 || lane == 2)
         return noteBlack;
+    else
+        return noteWhite;
 }
 
 // 전역 틀 만들기

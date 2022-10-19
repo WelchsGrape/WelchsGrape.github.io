@@ -1,10 +1,10 @@
 body { background-color: #191919; }
 header { color: white; }
 table, th, td { border: 1px solid rgb(63, 63, 63); border-collapse: collapse; padding: 0px; }
-th { background-color: rgb(96, 96, 96); width: 32px; height: 191px; }
+th { background-color: rgb(96, 96, 96); width: 32px; height: 255px; }
 td { vertical-align: top;}
 td.chart { width: 120px; }
-div { background-image: url("back.png"); width: 120px; height: 191px; }
+div { background-image: url("back.png"); width: 120px; height: 255px; }
 div, div img { position: absolute; }
 table.fixed { table-layout: fixed; width: 152px; }
 table.fixed tr { overflow: hidden; }
