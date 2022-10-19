@@ -1,5 +1,5 @@
 // 4/4 박자에서 한 마디를 몇 픽셀로 표기할 것인가
-const displaySize = 192;
+const displaySize = 256;
 
 // 레인별 롱 노트 종료 여부
 let sideAlive = [false, false];
