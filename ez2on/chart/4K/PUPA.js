@@ -1,4 +1,4 @@
-let measureStart = 0;
+const measureStart = 0;
 
 let data = [
   {

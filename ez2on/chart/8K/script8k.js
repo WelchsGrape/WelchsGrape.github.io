@@ -1,5 +1,24 @@
 // 4/4 박자에서 한 마디를 몇 픽셀로 표기할 것인가
-const displaySize = 255;
+const displaySize = 256;
+
+// 레인별 롱 노트 종료 여부
+let longAlive = [false, false, false, false, false, false, false, false];
+
+// 노트별 참조 리소스
+let noteBlack = '8b.png';
+let noteGreen = '8g.png';
+let noteWhite = '8w.png';
+let laneWidth = 15;
+
+// 해당 레인이 백건반인지 흑건반인지 파악
+function getBlackWhite(lane) {
+    if (lane == 2 || lane == 5)
+        return noteBlack;
+    else if (lane == 0 || lane == 7)
+        return noteGreen;
+    else
+        return noteWhite;
+}
 
 // 전역 틀 만들기
 let globalTable = document.createElement('table');
@@ -12,22 +31,6 @@ document.getElementById('article').appendChild(globalTable);
 
 globalTd = document.createElement('td');
 globalTr.appendChild(globalTd);
-
-// 레인별 롱 노트 종료 여부
-let longAlive = [false, false, false, false];
-
-// 노트별 참조 리소스
-let noteBlack = '4b.png';
-let noteWhite = '4w.png';
-let laneWidth = 30;
-
-// 해당 레인이 백건반인지 흑건반인지 파악
-function getBlackWhite(lane) {
-    if (lane == 1 || lane == 2)
-        return noteBlack;
-    else
-        return noteWhite;
-}
 
 // 마디별 노트 작성
 for (let measureNo = 1; measureNo < data.length; measureNo++) {
@@ -57,11 +60,11 @@ for (let measureNo = 1; measureNo < data.length; measureNo++) {
     localTd.appendChild(div);
     
     // 레인별 노트 위치
-    let chipArray = [data[measureNo].A2, data[measureNo].A3, data[measureNo].A5, data[measureNo].A6];
-    let longArray = [data[measureNo].L2, data[measureNo].L3, data[measureNo].L5, data[measureNo].L6];
+    let chipArray = [data[measureNo].A1, data[measureNo].A2, data[measureNo].A3, data[measureNo].A4, data[measureNo].A5, data[measureNo].A6, data[measureNo].A7, data[measureNo].A8];
+    let longArray = [data[measureNo].L1, data[measureNo].L2, data[measureNo].L3, data[measureNo].L4, data[measureNo].L5, data[measureNo].L6, data[measureNo].L7, data[measureNo].L8];
 
     // 레인별 롱 노트 최종 위치
-    let longPos = [0, 0, 0, 0];
+    let longPos = [0, 0, 0, 0, 0, 0, 0, 0];
 
     // 칩 노트
     for (let lane = 0; lane < chipArray.length; lane++) {
