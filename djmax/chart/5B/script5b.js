@@ -24,7 +24,7 @@ function makeChart(order, isSideChanged = false) {
     let dataArea = document.getElementById('data');
     if (dataArea) {
         dataArea.remove();
-        document.getElementById('order').innerText = `[${Number(order) + 11111}]`;
+        document.getElementById('order').innerText = `[${Number(order) + 11111} + ${isSideChanged ? 'RL' : 'LR'}]`;
     }
 
     // 전역 틀 만들기
