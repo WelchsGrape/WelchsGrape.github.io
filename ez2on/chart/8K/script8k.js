@@ -115,7 +115,7 @@ for (let measureNo = 1; measureNo < data.length; measureNo++) {
         if (longAlive[lane] && !longArray[lane]) {
             let note = document.createElement('img');
             note.src = getBlackWhite(lane);
-            note.setAttribute('style', `bottom: ${-1}px; left: ${lane * laneWidth}px; width: ${laneWidth}px; height: ${displaySize}px;`);
+            note.setAttribute('style', `bottom: ${-1}px; left: ${lane * laneWidth}px; width: ${laneWidth}px; height: ${displaySize + 1}px;`);
             div.appendChild(note);
         }
     }
