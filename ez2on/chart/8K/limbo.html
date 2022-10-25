@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>LIMBO</title>
         <link rel="stylesheet" href="../style.css">
-        <script src="./LIMBO.js"></script>
+        <script src="LIMBO.js"></script>
     </head>
     <body>
         <header>
@@ -16,8 +16,14 @@
         </article>
         <hr>
         <footer>
-
+            <button onclick="chartDefault(keys)"><u>D</u>EFAULT</button>
+            <button onclick="chartCustom(keys)"><u>C</u>USTOM</button>
+            <button onclick="chartMirror(keys)"><u>M</u>IRROR</button>
+            <button onclick="chartRandom(keys)"><u>R</u>ANDOM</button>
+            <button onclick="chartFlip(keys)"><u>F</u>LIP RANDOM</button>
+            <button onclick="chartFlip(keys, true)">M<u>I</u>RROR-FLIP RANDOM</button>
+            <span id="order"></span>
         </footer>
-        <script src="script8k.js"></script>
+        <script src="../script.js"></script>
     </body>
 </html>

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Odysseus</title>
         <link rel="stylesheet" href="../style.css">
-        <script src="./Odysseus.js"></script>
+        <script src="Odysseus.js"></script>
     </head>
     <body>
         <header>
@@ -15,8 +15,15 @@
         </article>
         <hr>
         <footer>
-
+            <form>
+                <button onclick="chartDefault(keys)"><u>D</u>EFAULT</button>
+                <button onclick="chartCustom(keys)"><u>C</u>USTOM</button>
+                <button onclick="chartMirror(keys)"><u>M</u>IRROR</button>
+                <button onclick="chartRandom(keys)"><u>R</u>ANDOM</button>
+                <button onclick="chartHalf(keys)"><u>H</u>ALF RANDOM</button>
+                <span id="order"></span>
+            </form>
         </footer>
-        <script src="./script8b.js"></script>
+        <script src="../script.js"></script>
     </body>
 </html>

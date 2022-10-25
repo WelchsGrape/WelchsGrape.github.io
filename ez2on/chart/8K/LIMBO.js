@@ -1,6 +1,6 @@
 const measureStart = 1;
-
- const data = [
+const keys = 8;
+const data = [
   {
     "No": 0,
     "A1": null,
