@@ -402,6 +402,7 @@ function chartCustom(keys) {
     makeChart(keys, getOrderFromText(keys, order), sideOrder);
 }
 
+// 미러 배치 생성
 function chartMirror(keys) {
     let order = '';
 

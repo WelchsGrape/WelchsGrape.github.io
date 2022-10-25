@@ -371,7 +371,7 @@ function chartRandom(keys) {
     makeChart(keys, getRandomOrder(array));
 }
 
-// 플립 배치 생성
+// 플립 및 미러 플립 배치 생성
 function chartFlip(keys, isMirrorFlip = false) {
     let left = [];
     let middle = '2';
