@@ -1,4 +1,4 @@
-let data = [
+const data = [
     {"version":"CE","name":"고백, 꽃, 늑대","composer":"ReX","minBPM":80,"maxBPM":null,"NM4":1,"HD4":3,"MX4":6,"SC4":null,"NM5":1,"HD5":6,"MX5":null,"SC5":1,"NM6":1,"HD6":4,"MX6":7,"SC6":null,"NM8":1,"HD8":3,"MX8":7,"SC8":1},
     {"version":"BS","name":"고백, 꽃, 늑대 part.2","composer":"ReX","minBPM":160,"maxBPM":null,"NM4":3,"HD4":8,"MX4":null,"SC4":null,"NM5":4,"HD5":10,"MX5":null,"SC5":4,"NM6":4,"HD6":8,"MX6":11,"SC6":null,"NM8":5,"HD8":11,"MX8":null,"SC8":7},
     {"version":"NXN","name":"공성전 ~Pierre Blanche, Yonce Remix~","composer":"Pierre Blanche / Yonce","minBPM":182,"maxBPM":null,"NM4":7,"HD4":11,"MX4":14,"SC4":null,"NM5":7,"HD5":12,"MX5":14,"SC5":null,"NM6":7,"HD6":12,"MX6":14,"SC6":12,"NM8":7,"HD8":13,"MX8":null,"SC8":10},

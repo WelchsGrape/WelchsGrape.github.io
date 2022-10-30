@@ -1,4 +1,4 @@
-let data = [
+const data = [
     {"version":"3RD","name":"2.14","composer":"FE","minBPM":113,"maxBPM":null,"BSC4":null,"EZ4":3,"NM4":5,"HD4":8,"SHD4":11,"BSC5":null,"EZ5":3,"NM5":5,"HD5":9,"SHD5":12,"BSC6":null,"EZ6":3,"NM6":5,"HD6":8,"SHD6":11,"EZ8":4,"NM8":6,"HD8":8,"SHD8":12},
     {"version":"3RD","name":"20000000000","composer":"CROOVE","minBPM":174,"maxBPM":null,"BSC4":null,"EZ4":4,"NM4":10,"HD4":15,"SHD4":18,"BSC5":null,"EZ5":6,"NM5":12,"HD5":15,"SHD5":18,"BSC6":6,"EZ6":10,"NM6":13,"HD6":15,"SHD6":18,"EZ8":9,"NM8":14,"HD8":16,"SHD8":18},
     {"version":"3RD","name":"2nd Jewel","composer":"Andy Lee","minBPM":120,"maxBPM":null,"BSC4":null,"EZ4":2,"NM4":4,"HD4":8,"SHD4":13,"BSC5":null,"EZ5":4,"NM5":8,"HD5":12,"SHD5":14,"BSC6":null,"EZ6":5,"NM6":10,"HD6":12,"SHD6":14,"EZ8":5,"NM8":9,"HD8":11,"SHD8":14},
