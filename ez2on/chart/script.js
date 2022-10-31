@@ -6,9 +6,11 @@ let noteGreen = '8g.png';
 let noteBlack = '';
 let noteWhite = '';
 let laneWidth = 0;
+let chipSize = 5;
+let currentOrder = '';
 
 // 노트 별 리소스 할당
-function getNoteResources(keys) {
+function getNoteResources() {
     switch (keys) {
         case 4:
             noteBlack = '4b.png';
@@ -34,7 +36,7 @@ function getNoteResources(keys) {
 }
 
 // 해당 레인이 백건반인지 흑건반인지 파악
-function getBlackWhite(keys, lane) {
+function getBlackWhite(lane) {
     switch (keys) {
         case 4:
             if (lane == 1 || lane == 2) {
@@ -66,26 +68,26 @@ function getBlackWhite(keys, lane) {
 }
 
 // 현재 레인 순서를 화면에 출력할 텍스트로 변환
-function getTextFromOrder(keys, order) {
+function getTextFromOrder() {
     switch (keys) {
         case 4:
-            return `[${Number(order) + 1111}]`;
+            return `[${Number(currentOrder) + 1111}]`;
         case 5:
-            return `[${Number(order) + 11111}]`;
+            return `[${Number(currentOrder) + 11111}]`;
         case 6:
-            return `[${Number(order) + 111111}]`;
+            return `[${Number(currentOrder) + 111111}]`;
         case 8:
-            return `[${Number(order) + 11111111}]`;
+            return `[${Number(currentOrder) + 11111111}]`;
     }
 }
 
 // 차트 그리기
-function makeChart(keys, order) {
+function makeChart() {
     // 기존에 생성된 보면이 있다면 지우고 새로 만들기
     let dataArea = document.getElementById('data');
     if (dataArea) {
         dataArea.remove();
-        document.getElementById('order').innerText = getTextFromOrder(keys, order);
+        document.getElementById('order').innerText = getTextFromOrder();
     }
 
     // 전역 틀 만들기
@@ -102,7 +104,7 @@ function makeChart(keys, order) {
     globalTr.appendChild(globalTd);
 
     // 모드별 버튼 리소스 획득
-    getNoteResources(keys);
+    getNoteResources();
 
     // 레인별 롱 노트 종료 여부
     let longAlive = [];
@@ -166,7 +168,7 @@ function makeChart(keys, order) {
         }
 
         // 레인 재배치
-        order = Array.from(order);
+        let order = Array.from(currentOrder);
         switch (keys) {
             case 4:
                 [chipArray[0], chipArray[1], chipArray[2], chipArray[3]] =
@@ -202,8 +204,8 @@ function makeChart(keys, order) {
                 // 01 보이면 해당 위치에 노트 작성
                 if (chipArray[lane].substring(pos * 2, (pos + 1) * 2) == '01') {
                     let note = document.createElement('img');
-                    note.src = getBlackWhite(keys, lane);
-                    note.setAttribute('style', `bottom: ${pos * displaySize / bits - 1}px; left: ${lane * laneWidth}px;`);
+                    note.src = getBlackWhite(lane);
+                    note.setAttribute('style', `bottom: ${pos * displaySize / bits - 1}px; left: ${lane * laneWidth}px; width: ${laneWidth}px; height: ${chipSize}px;`);
                     div.appendChild(note);
                 }
             }
@@ -220,7 +222,7 @@ function makeChart(keys, order) {
                         longPos[lane] = pos;    // 롱노트 시작점을 체크
                     } else {
                         let note = document.createElement('img');
-                        note.src = getBlackWhite(keys, lane);
+                        note.src = getBlackWhite(lane);
                         note.setAttribute('style', `bottom: ${longPos[lane] * displaySize / bits - 1}px; left: ${lane * laneWidth}px; width: ${laneWidth}px; height: ${(pos - longPos[lane]) * displaySize / bits}px;`);
                         div.appendChild(note);
                     }
@@ -232,7 +234,7 @@ function makeChart(keys, order) {
                 // 다음 마디까지 롱노트가 이어질 때
                 if (longAlive[lane] && (pos == bits - 1)) {
                     let note = document.createElement('img');
-                    note.src = getBlackWhite(keys, lane);
+                    note.src = getBlackWhite(lane);
                     note.setAttribute('style', `bottom: ${longPos[lane] * displaySize / bits - 1}px; left: ${lane * laneWidth}px; width: ${laneWidth}px; height: ${(bits - longPos[lane]) * displaySize / bits + 1}px;`);
                     div.appendChild(note);
                 }
@@ -241,7 +243,7 @@ function makeChart(keys, order) {
             // 전 마디부터 이번 마디도 꽉 채울 때
             if (longAlive[lane] && !longArray[lane]) {
                 let note = document.createElement('img');
-                note.src = getBlackWhite(keys, lane);
+                note.src = getBlackWhite(lane);
                 note.setAttribute('style', `bottom: ${-1}px; left: ${lane * laneWidth}px; width: ${laneWidth}px; height: ${displaySize + 1}px;`);
                 div.appendChild(note);
             }
@@ -249,30 +251,33 @@ function makeChart(keys, order) {
     }
 }
 
+// 칩 노트 크기 설정
+function setChipSize() {
+    chipSize = Number(prompt('칩 노트 크기를 설정해 주세요.', 5));
+}
+
 // 정규 배치 생성
 function chartDefault(keys) {
-    let order = '';
-
     switch (keys) {
         case 4:
-            order = '0123';
+            currentOrder = '0123';
             break;
         case 5:
-            order = '01234';
+            currentOrder = '01234';
             break;
         case 6:
-            order = '012345';
+            currentOrder = '012345';
             break;
         case 8:
-            order = '01234567';
+            currentOrder = '01234567';
             break;
     }
 
-    makeChart(keys, order);
+    makeChart();
 }
 
 // 입력받은 텍스트를 재배치할 레인으로 변환
-function getOrderFromText(keys, order) {
+function getOrderFromText(order) {
     switch (keys) {
         case 4:
             order -= 1111;
@@ -292,7 +297,7 @@ function getOrderFromText(keys, order) {
 }
 
 // 커스텀 배치 생성
-function chartCustom(keys) {
+function chartCustom() {
     let example = '';
 
     switch (keys) {
@@ -318,29 +323,28 @@ function chartCustom(keys) {
     }
 
     // 입력받은 텍스트를 레인 순서로 변경
-    makeChart(keys, getOrderFromText(keys, order));
+    currentOrder = getOrderFromText(order);
+    makeChart();
 }
 
 // 미러 배치 생성
-function chartMirror(keys) {
-    let order = '';
-
+function chartMirror() {
     switch (keys) {
         case 4:
-            order = '3210';
+            currentOrder = '3210';
             break;
         case 5:
-            order = '43210';
+            currentOrder = '43210';
             break;
         case 6:
-            order = '543210';
+            currentOrder = '543210';
             break;
         case 8:
-            order = '76543210';
+            currentOrder = '76543210';
             break;
     }
 
-    makeChart(keys, order);
+    makeChart();
 }
 
 // 최소 이상 최대 미만에서 임의의 정수 생성
@@ -368,11 +372,12 @@ function chartRandom(keys) {
         array[i] = i;
     }
 
-    makeChart(keys, getRandomOrder(array));
+    currentOrder = getRandomOrder(array);
+    makeChart();
 }
 
 // 플립 및 미러 플립 배치 생성
-function chartFlip(keys, isMirrorFlip = false) {
+function chartFlip(isMirrorFlip = false) {
     let left = [];
     let middle = '2';
     let right = [];
@@ -408,13 +413,13 @@ function chartFlip(keys, isMirrorFlip = false) {
             break;
     }
 
-    let order = getRandomOrder(left);
+    currentOrder = getRandomOrder(left);
     if (keys == 5) {
-        order += middle;
+        currentOrder += middle;
     }
-    order += getRandomOrder(right);
+    currentOrder += getRandomOrder(right);
 
-    makeChart(keys, order);
+    makeChart();
 }
 
 // 키보드 입력 받기
@@ -422,29 +427,33 @@ window.addEventListener("keydown", (e) => {
     switch (e.key) {
         case 'd':
         case 'D':
-            chartDefault(keys);
+            chartDefault();
             break;
         case 'c':
         case 'C':
-            chartCustom(keys);
+            chartCustom();
             break;
         case 'm':
         case 'M':
-            chartMirror(keys);
+            chartMirror();
             break;
         case 'r':
         case 'R':
-            chartRandom(keys);
+            chartRandom();
             break;
         case 'f':
         case 'F':
-            chartFlip(keys);
+            chartFlip();
             break;
         case 'i':
         case 'I':
-            chartFlip(keys, true);
+            chartFlip(true);
+            break;
+        case 's':
+        case 'S':
+            setChipSize();
             break;
     }
 });
 
-chartDefault(keys);
+chartDefault();
