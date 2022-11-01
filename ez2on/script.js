@@ -162,7 +162,7 @@ function showName(paramName) {
         if (document.getElementById('key4').checked
         || document.getElementById('key5').checked
         || document.getElementById('key6').checked) {
-                BSC = document.createElement('td');
+            BSC = document.createElement('td');
             BSC.className = 'difficulty';
         }
 
@@ -226,8 +226,9 @@ function showName(paramName) {
         if (document.getElementById('key4').checked
         || document.getElementById('key5').checked
         || document.getElementById('key6').checked) {
-                row.appendChild(BSC);
+            row.appendChild(BSC);
         }
+
         row.appendChild(col1);
         row.appendChild(col2);
         row.appendChild(col3);
@@ -409,6 +410,7 @@ function showSeries(paramVersion) {
         || document.getElementById('key6').checked) {
                 row.appendChild(BSC);
         }
+        
         row.appendChild(col1);
         row.appendChild(col2);
         row.appendChild(col3);
