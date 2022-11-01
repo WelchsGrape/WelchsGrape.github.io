@@ -1,6 +1,3 @@
-let nowSearch = null;
-let nowView = null;
-
 // 이미 만들어진 테이블을 삭제
 function removeTable() {
     document.getElementById('section').innerText = '';
@@ -65,11 +62,9 @@ function getVersionFullName(version) {
     }
 }
 
-// 함수 목록
+// 이름으로 검색
 function showName(paramName) {
     removeTable();
-
-    nowSearch = paramName;
 
     let arr = [];
     const alphabet = /[a-zA-Z]/;
@@ -79,8 +74,8 @@ function showName(paramName) {
                 arr.push(iterator);
             }
         } else {
-            if (iterator.name.charAt(0) == paramName ||
-                iterator.name.charAt(0) == paramName.toLowerCase()) {
+            if (iterator.name.charAt(0) == paramName
+            || iterator.name.charAt(0) == paramName.toLowerCase()) {
                 arr.push(iterator);
             }
         }
@@ -235,6 +230,7 @@ function showName(paramName) {
     }
 }
 
+// 버전으로 검색
 function showVersion(paramVersion) {
     removeTable();
 
@@ -391,6 +387,7 @@ function showVersion(paramVersion) {
     }
 }
 
+// 정규 난이도로 검색
 function showLevel(level) {
     removeTable();
 
@@ -540,6 +537,7 @@ function showLevel(level) {
     }
 }
 
+// SC 난이도로 검색
 function showSCLevel(level) {
     removeTable();
 

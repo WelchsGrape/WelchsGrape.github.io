@@ -8,7 +8,8 @@ function removeTable() {
     }    
 }
 
-function removeFirstWord(str) {
+// 곡 이름 앞에 The를 제거
+function removeThe(str) {
     const indexOfSpace = str.indexOf(' ');
   
     if (indexOfSpace === -1) {
@@ -18,25 +19,19 @@ function removeFirstWord(str) {
     return str.substring(indexOfSpace + 1);
 }
 
-// 함수 목록
+// 이름으로 검색
 function showName(paramName) {
     removeTable();
 
     let arr = [];
-    const numbers = /[0-9]/;
     const alphabet = /[a-zA-Z]/;
     for (const iterator of data) {
         // 첫 글자가 The인 경우
         const isItTHE = iterator.name.slice(0, 3);
         if (isItTHE == 'The') {
-            const songName = removeFirstWord(iterator.name);
+            const songName = removeThe(iterator.name);
             if (paramName == '#') {
-                if (numbers.test(songName.charAt(0))) {
-                    arr.push(iterator);
-                }
-            } else if (paramName == '가') {
-                if (!numbers.test(songName.charAt(0))
-                && !alphabet.test(songName.charAt(0))) {
+                if (!alphabet.test(songName.charAt(0))) {
                     arr.push(iterator);
                 }
             } else {
@@ -47,12 +42,7 @@ function showName(paramName) {
             }
         } else if (iterator.name.charAt(0) == '#') { // 첫 글자가 #인 경우
             if (paramName == '#') {
-                if (numbers.test(iterator.name.charAt(1))) {
-                    arr.push(iterator);
-                }
-            } else if (paramName == '가') {
-                if (!numbers.test(iterator.name.charAt(1))
-                && !alphabet.test(iterator.name.charAt(1))) {
+                if (!alphabet.test(iterator.name.charAt(1))) {
                     arr.push(iterator);
                 }
             } else {
@@ -63,12 +53,7 @@ function showName(paramName) {
             }
         } else {
             if (paramName == '#') {
-                if (numbers.test(iterator.name.charAt(0))) {
-                    arr.push(iterator);
-                }
-            } else if (paramName == '가') {
-                if (!numbers.test(iterator.name.charAt(0))
-                && !alphabet.test(iterator.name.charAt(0))) {
+                if (!alphabet.test(iterator.name.charAt(0))) {
                     arr.push(iterator);
                 }
             } else {
@@ -252,6 +237,7 @@ function showName(paramName) {
     }
 }
 
+// 버전으로 검색
 function showSeries(paramVersion) {
     removeTable();
 
@@ -432,6 +418,7 @@ function showSeries(paramVersion) {
     }
 }
 
+// 난이도로 검색
 function showLevel(level) {
     removeTable();
 
