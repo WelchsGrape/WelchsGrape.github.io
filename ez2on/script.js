@@ -8,6 +8,46 @@ function removeTable() {
     }    
 }
 
+// 원 시리즈 이름을 반환
+function getVersionFullName(version) {
+    switch (version) {
+        case 'ALL':
+            return 'ALL TRACK';
+        case '1ST':
+            return 'THE 1ST TRACKS';
+        case 'S/E':
+            return 'SPECIAL EDITION';
+        case '2ND':
+            return '2ND TRAX';
+        case '3RD':
+            return '3RD TRAX';
+        case '4TH':
+            return '4TH TRAX';
+        case 'PT':
+            return 'PLATINUM';
+        case '6TH':
+            return '6TH TRAX';
+        case '7TH':
+            return '7TH TRAX';
+        case '2008':
+            return 'EZ2ON';
+        case '2013':
+            return 'EZ2ON REBOOT';
+        case '2021':
+            return 'EZ2ON REBOOT : R';
+        case 'TT':
+            return 'TIME TRAVELER';
+        case 'CV':
+            return 'CODENAME VIOLET';
+        case 'PP':
+            return 'PRESTIGE PASS';
+        case 'O2':
+            return 'O2JAM';
+        case 'GC':
+            return 'GROOVE COASTER';
+    }
+}
+
 // 곡 이름 앞에 The를 제거
 function removeThe(str) {
     const indexOfSpace = str.indexOf(' ');
@@ -82,9 +122,9 @@ function showName(paramName) {
     // 첫 행 만들기
     let row = document.createElement('tr');
 
-    let series = document.createElement('th');
-    series.innerHTML = "시리즈";
-    row.appendChild(series);
+    let version = document.createElement('th');
+    version.innerHTML = "시리즈";
+    row.appendChild(version);
 
     let name = document.createElement('th');
     name.innerHTML = "곡 이름";
@@ -141,9 +181,9 @@ function showName(paramName) {
     for (const iterator of arr) {
         row = document.createElement('tr');
 
-        series = document.createElement('td');
-        series.innerHTML = `${iterator.version}`;
-        row.appendChild(series);
+        version = document.createElement('td');
+        version.innerHTML = getVersionFullName(iterator.version);
+        row.appendChild(version);
 
         name = document.createElement('td');
         name.innerHTML = `${iterator.name}`;
@@ -239,7 +279,7 @@ function showName(paramName) {
 }
 
 // 버전으로 검색
-function showSeries(paramVersion) {
+function showVersion(paramVersion) {
     removeTable();
 
     // json에서 필터한 내용을 담을 배열
@@ -256,7 +296,7 @@ function showSeries(paramVersion) {
     }
 
     // 제목 설정
-    document.getElementById('section').innerText = `시리즈: ${paramVersion} [${arr.length}]`;
+    document.getElementById('section').innerText = `시리즈: ${getVersionFullName(paramVersion)} [${arr.length}]`;
 
     // 테이블 생성하고 내용 채우기
     let table = document.createElement('table');
@@ -537,7 +577,7 @@ function showLevel(level) {
         row = document.createElement('tr');
 
         version = document.createElement('td');
-        version.innerHTML = `${iterator.version}`;
+        version.innerHTML = getVersionFullName(iterator.version);
         row.appendChild(version);
 
         name = document.createElement('td');
