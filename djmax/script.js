@@ -19,6 +19,8 @@ function getVersionFullName(version) {
             return 'V EXTENSION 1';
         case 'VE2':
             return 'V EXTENSION 2';
+        case 'VE3':
+            return 'V EXTENSION 3';
         case 'P1':
             return 'PORTABLE 1';
         case 'P2':
