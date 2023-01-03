@@ -26,7 +26,7 @@ async function parseChart(fileName) {
             // Parse Main Data Field
             const [key, value] = datum.split(`:`);
             const measure = Number(key.slice(1, 4));
-            const lane = key.slice(4);
+            const lane = String(key.slice(4));
 
             while (chart.length - 1 < measure) {
                 const obj = {};
