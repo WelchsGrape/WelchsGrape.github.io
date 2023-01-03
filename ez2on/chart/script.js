@@ -37,7 +37,7 @@ async function parseChart(fileName) {
         }
     }
 
-    makeDefault();
+    chartDefault();
 }
 
 // 4/4 박자에서 한 마디를 몇 픽셀로 표기할 것인가
