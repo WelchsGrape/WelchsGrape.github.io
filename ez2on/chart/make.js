@@ -105,6 +105,7 @@ function makeChart() {
     globalTr.appendChild(globalTd);
 
     // 모드별 버튼 리소스 획득
+    keys = Number(chart[0][`GENRE`]);
     getNoteResources();
 
     // 레인별 롱 노트 종료 여부
@@ -142,7 +143,6 @@ function makeChart() {
         localTd.appendChild(div);
         
         // 레인별 노트 위치
-        keys = Number(chart[0][`GENRE`]);
         let chipArray = [];
         let longArray = [];
         switch (keys) {
@@ -199,12 +199,9 @@ function makeChart() {
                 break;
         }
 
-
-        // 칩과 롱 통합하면서 lane < keys; 하면 되는 것 아닐까?
-
-
-        // 칩 노트
-        for (let lane = 0; lane < chipArray.length; lane++) {
+        // 화면에 채보 출력
+        for (let lane = 0; lane < keys; lane++) {
+            // 칩 노트
             // 마디가 몇 비트로 구성되었는지
             let bits = !chipArray[lane] ? 0 : chipArray[lane].length / 2;
             for (let pos = 0; pos < bits; pos++) {
@@ -216,12 +213,10 @@ function makeChart() {
                     div.appendChild(note);
                 }
             }
-        }
 
-        // 롱 노트
-        for (let lane = 0; lane < longArray.length; lane++) {
+            // 롱 노트
             // 마디가 몇 비트로 구성되었는지
-            let bits = !longArray[lane] ? 0 : longArray[lane].length / 2;
+            bits = !longArray[lane] ? 0 : longArray[lane].length / 2;
             for (let pos = 0; pos < bits; pos++) {
                 // 01 보이면 해당 위치에 노트 작성
                 if (longArray[lane].substring(pos * 2, (pos + 1) * 2) == '01') {
