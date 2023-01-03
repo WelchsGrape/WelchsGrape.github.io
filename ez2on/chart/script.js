@@ -302,7 +302,7 @@ function setChipSize() {
 }
 
 // 정규 배치 생성
-function chartDefault(keys) {
+function chartDefault() {
     switch (keys) {
         case 4:
             currentOrder = '0123';
@@ -411,7 +411,7 @@ function getRandomOrder(array) {
 }
 
 // 랜덤 배치 생성
-function chartRandom(keys) {
+function chartRandom() {
     let array = [];
     for (let i = 0; i < keys; i++) {
         array[i] = i;
