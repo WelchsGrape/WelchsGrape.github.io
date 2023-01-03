@@ -1,4 +1,5 @@
 const chart = [];
+let keys = 0;
 
 async function parseChart(fileName) {
     const res = await fetch(fileName);
@@ -37,6 +38,8 @@ async function parseChart(fileName) {
         }
     }
 
+    keys = Number(chart[0][`GENRE`]);
+
     chartDefault();
 }
 
@@ -50,7 +53,6 @@ let noteWhite = '';
 let laneWidth = 0;
 let chipSize = 5;
 let currentOrder = '';
-let keys = 0;
 
 // 노트 별 리소스 할당
 function getNoteResources() {
@@ -147,7 +149,6 @@ function makeChart() {
     globalTr.appendChild(globalTd);
 
     // 모드별 버튼 리소스 획득
-    keys = Number(chart[0][`GENRE`]);
     getNoteResources();
 
     // 레인별 롱 노트 종료 여부
