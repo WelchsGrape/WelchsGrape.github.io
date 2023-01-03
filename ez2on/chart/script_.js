@@ -1,45 +1,3 @@
-const chart = [];
-
-async function parseChart(fileName) {
-    const res = await fetch(fileName);
-    const rawData = await res.text();
-    const data = rawData.split(`\n`).map(element => element.trim()).filter(element => element !== ``);
-
-    let isHeader = true;
-    for (const datum of data) {
-        if (datum === `*---------------------- HEADER FIELD`) {
-            // Start Header Field
-            const obj = {};
-            chart.push(obj);
-        } else if (datum === `*---------------------- MAIN DATA FIELD`) {
-            // Start Main Data Field
-            isHeader = false;
-        } else if (isHeader) {
-            // Parse Header Field
-            const key = datum.slice(1, datum.indexOf(` `));
-            const value = datum.slice(datum.indexOf(` `) + 1);
-            
-            if ([`TITLE`, `GENRE`, `ARTIST`, `BPM`, `PLAYLEVEL`, `RANK`].includes(key)) {
-                chart[0][key] = value;
-            }
-        } else {
-            // Parse Main Data Field
-            const [key, value] = datum.split(`:`);
-            const measure = Number(key.slice(1, 4));
-            const lane = key.slice(4);
-
-            while (chart.length - 1 < measure) {
-                const obj = {};
-                chart.push(obj);
-            }
-            
-            chart[measure][lane] = value;
-        }
-    }
-
-    makeDefault();
-}
-
 // 4/4 박자에서 한 마디를 몇 픽셀로 표기할 것인가
 const displaySize = 256;
 
@@ -50,7 +8,6 @@ let noteWhite = '';
 let laneWidth = 0;
 let chipSize = 5;
 let currentOrder = '';
-let keys = 0;
 
 // 노트 별 리소스 할당
 function getNoteResources() {
@@ -147,7 +104,6 @@ function makeChart() {
     globalTr.appendChild(globalTd);
 
     // 모드별 버튼 리소스 획득
-    keys = Number(chart[0][`GENRE`]);
     getNoteResources();
 
     // 레인별 롱 노트 종료 여부
@@ -157,10 +113,9 @@ function makeChart() {
     }
 
     // 마디별 노트 작성
-    for (let measure = 1; measure < chart.length; measure++) {
+    for (let measureNo = 1; measureNo < data.length; measureNo++) {
         // 곡마다 시작 마디를 설정하면 그 번호가 맨 아래로 가게끔 할 수 있다.
-        const measureStart = Number(chart[0][`RANK`]);
-        let measureReal = measure - measureStart;
+        let measureReal = measureNo - measureStart;
         if (measureReal >= 0 && measureReal % 4 == 0) {
             globalTd = document.createElement('td');
             globalTr.appendChild(globalTd);
@@ -180,7 +135,7 @@ function makeChart() {
         
         localTr.appendChild(localTh);
         localTr.appendChild(localTd);
-        localTh.innerHTML = measure;
+        localTh.innerHTML = measureNo;
         localTd.className = 'chart';
         localTd.appendChild(div);
         
@@ -189,20 +144,20 @@ function makeChart() {
         let longArray = [];
         switch (keys) {
             case 4:
-                chipArray = [chart[measure][12], chart[measure][13], chart[measure][15], chart[measure][18]];
-                longArray = [chart[measure][52], chart[measure][53], chart[measure][55], chart[measure][58]];
+                chipArray = [data[measureNo].A2, data[measureNo].A3, data[measureNo].A5, data[measureNo].A6];
+                longArray = [data[measureNo].L2, data[measureNo].L3, data[measureNo].L5, data[measureNo].L6];
                 break;
             case 5:
-                chipArray = [chart[measure][12], chart[measure][13], chart[measure][14], chart[measure][15], chart[measure][18]];
-                longArray = [chart[measure][52], chart[measure][53], chart[measure][54], chart[measure][55], chart[measure][58]];
+                chipArray = [data[measureNo].A2, data[measureNo].A3, data[measureNo].A4, data[measureNo].A5, data[measureNo].A6];
+                longArray = [data[measureNo].L2, data[measureNo].L3, data[measureNo].L4, data[measureNo].L5, data[measureNo].L6];
                 break;
             case 6:
-                chipArray = [chart[measure][11], chart[measure][12], chart[measure][13], chart[measure][14], chart[measure][18], chart[measure][19]];
-                longArray = [chart[measure][51], chart[measure][52], chart[measure][53], chart[measure][54], chart[measure][58], chart[measure][59]];
+                chipArray = [data[measureNo].A2, data[measureNo].A3, data[measureNo].A4, data[measureNo].A6, data[measureNo].A7, data[measureNo].A8];
+                longArray = [data[measureNo].L2, data[measureNo].L3, data[measureNo].L4, data[measureNo].L6, data[measureNo].L7, data[measureNo].L8];
                 break;
             case 8:
-                chipArray = [chart[measure][16], chart[measure][11], chart[measure][12], chart[measure][13], chart[measure][14], chart[measure][15], chart[measure][18], chart[measure][19]];
-                longArray = [chart[measure][56], chart[measure][51], chart[measure][52], chart[measure][53], chart[measure][54], chart[measure][55], chart[measure][58], chart[measure][59]];
+                chipArray = [data[measureNo].A1, data[measureNo].A2, data[measureNo].A3, data[measureNo].A4, data[measureNo].A5, data[measureNo].A6, data[measureNo].A7, data[measureNo].A8];
+                longArray = [data[measureNo].L1, data[measureNo].L2, data[measureNo].L3, data[measureNo].L4, data[measureNo].L5, data[measureNo].L6, data[measureNo].L7, data[measureNo].L8];
                 break;
         }
 
@@ -241,9 +196,8 @@ function makeChart() {
                 break;
         }
 
-        // 화면에 채보 출력
-        for (let lane = 0; lane < keys; lane++) {
-            // 칩 노트
+        // 칩 노트
+        for (let lane = 0; lane < chipArray.length; lane++) {
             // 마디가 몇 비트로 구성되었는지
             let bits = !chipArray[lane] ? 0 : chipArray[lane].length / 2;
             for (let pos = 0; pos < bits; pos++) {
@@ -255,10 +209,12 @@ function makeChart() {
                     div.appendChild(note);
                 }
             }
+        }
 
-            // 롱 노트
+        // 롱 노트
+        for (let lane = 0; lane < longArray.length; lane++) {
             // 마디가 몇 비트로 구성되었는지
-            bits = !longArray[lane] ? 0 : longArray[lane].length / 2;
+            let bits = !longArray[lane] ? 0 : longArray[lane].length / 2;
             for (let pos = 0; pos < bits; pos++) {
                 // 01 보이면 해당 위치에 노트 작성
                 if (longArray[lane].substring(pos * 2, (pos + 1) * 2) == '01') {
@@ -499,3 +455,5 @@ window.addEventListener("keydown", (e) => {
             break;
     }
 });
+
+chartDefault();

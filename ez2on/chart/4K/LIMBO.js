@@ -1,5 +1,4 @@
 window.addEventListener(`load`, () => {
-    parseChart(`LIMBO.bms`);
-    chartDefault();
+    makeChart(`LIMBO.bms`);
     console.log(chart);
 });
