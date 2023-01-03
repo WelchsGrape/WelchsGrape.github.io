@@ -1,1 +1,1 @@
-window.addEventListener(`load`, () => parseChart(`LIMBO.bms`));
+window.addEventListener(`load`, parseChart(`LIMBO.bms`));
