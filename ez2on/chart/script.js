@@ -148,7 +148,6 @@ function makeChart() {
 
     document.getElementById(`article`).appendChild(globalTable);
 
-    globalTd = document.createElement(`td`);
     globalTr.appendChild(globalTd);
 
     // 모드별 버튼 리소스 획득
