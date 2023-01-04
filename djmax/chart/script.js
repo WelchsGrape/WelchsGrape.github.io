@@ -41,7 +41,7 @@ async function parseChart(fileName) {
 
     // FX 모드 구분
     keys = chart[0][`GENRE`];
-    if (`+2`.includes(keys)) {
+    if (keys.includes(`+2`)) {
         keys = Number(keys[0]);
         isFXMode = true;
     }
