@@ -188,8 +188,8 @@ function makeChart() {
         localTd.appendChild(div);
         
         // 레인별 노트 위치
-        const chipArray = [];
-        const longArray = [];
+        let chipArray = null;
+        let longArray = null;
         switch (keys) {
             case 4:
                 chipArray = [chart[measure][11], chart[measure][12], chart[measure][14], chart[measure][15]];
