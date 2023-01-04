@@ -338,9 +338,9 @@ function makeChartForArray(isChipArray, inputArray, div, width, longAlive = null
 }
 
 // 노트 위치 설정 후 삽입
-function insertNote(div, lane, noteStyle) {
+function insertNote(div, source, noteStyle) {
     const note = document.createElement(`img`);
-    note.src = getNoteColor(lane);
+    note.src = source;
     note.setAttribute(`style`, noteStyle);
     div.appendChild(note);
 }
