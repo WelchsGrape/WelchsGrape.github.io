@@ -141,7 +141,7 @@ function makeChart() {
     // 전역 틀 만들기
     const globalTable = document.createElement(`table`);
     const globalTr = document.createElement(`tr`);
-    const globalTd = document.createElement(`td`);
+    let globalTd = document.createElement(`td`);
 
     globalTable.id = `data`;
     globalTable.appendChild(globalTr);
