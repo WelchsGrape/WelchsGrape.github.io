@@ -297,8 +297,9 @@ function makeChart() {
 // 주어진 배열에 맞게 채보 작성
 function makeChartFromArray(div, inputArray, noteSource, noteWidth, isLongArray, longAlive = null, longPos = null) {
     const noteLiteral = `01`;
+    const maxLane = !noteSource ? keys : 2;
 
-    for (let lane = 0; lane < (!noteSource ? keys : 2); lane++) {
+    for (let lane = 0; lane < maxLane; lane++) {
         noteSource ??= getNoteImage(lane);
 
         if (!isLongArray) {
