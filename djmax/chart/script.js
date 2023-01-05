@@ -278,11 +278,11 @@ function makeChart() {
         }
 
         // 화면에 채보 출력
+        makeChartFromArray(div, sideArray, noteSide, sideWidth, true, sideAlive, sidePos);
         if (isFXMode) {
             makeChartFromArray(div, chipFXArray, noteFX, sideWidth, false);
             makeChartFromArray(div, longFXArray, noteFX, sideWidth, true, FXAlive, FXPos);
         }
-        makeChartFromArray(div, sideArray, noteSide, sideWidth, true, sideAlive, sidePos);
         makeChartFromArray(div, chipArray, null, laneWidth, false);
         makeChartFromArray(div, longArray, null, laneWidth, true, longAlive, longPos);
     }
