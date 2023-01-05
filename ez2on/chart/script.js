@@ -73,10 +73,10 @@ function chartInfo() {
     header.innerText = `[${mode} SHD] ${title} / Artist: ${artist} / BPM: ${bpm} / Level: ${level} / Notes: ${noteCount}`;
 
     const hr = document.createElement(`hr`);
-    header.appendChild(hr);
+    header.append(hr);
 
     const footer = document.getElementById(`footer`);
-    footer.prependChild(hr);
+    footer.prepend(hr);
 
     // 키보드 입력 받기
     window.addEventListener(`keydown`, e => {
@@ -200,11 +200,11 @@ function makeChart() {
     let globalTd = document.createElement(`td`);
 
     globalTable.id = `data`;
-    globalTable.appendChild(globalTr);
+    globalTable.append(globalTr);
 
-    document.getElementById(`article`).appendChild(globalTable);
+    document.getElementById(`article`).append(globalTable);
 
-    globalTr.appendChild(globalTd);
+    globalTr.append(globalTd);
 
     // 모드별 버튼 리소스 획득
     getNoteResources();
@@ -219,7 +219,7 @@ function makeChart() {
         const measureReal = measure - measureStart;
         if (measureReal >= 0 && measureReal % 4 === 0) {
             globalTd = document.createElement(`td`);
-            globalTr.appendChild(globalTd);
+            globalTr.append(globalTd);
         }
 
         // 지역 틀 만들기
@@ -227,18 +227,18 @@ function makeChart() {
         const localTr = document.createElement(`tr`);
         
         globalTd.insertBefore(localTable, globalTd.firstChild);
-        localTable.appendChild(localTr);
+        localTable.append(localTr);
         localTable.className = `fixed`;
         
         const localTh = document.createElement(`th`);
         const localTd = document.createElement(`td`);
         const div = document.createElement(`div`);
         
-        localTr.appendChild(localTh);
-        localTr.appendChild(localTd);
+        localTr.append(localTh);
+        localTr.append(localTd);
         localTh.innerHTML = measure;
         localTd.className = `chart`;
-        localTd.appendChild(div);
+        localTd.append(div);
         
         // 레인별 노트 위치
         let chipArray = null;
@@ -350,7 +350,7 @@ function insertNote(div, source, noteStyle) {
     const note = document.createElement(`img`);
     note.src = source;
     note.setAttribute(`style`, noteStyle);
-    div.appendChild(note);
+    div.append(note);
 }
 
 // 칩 노트 크기 설정
