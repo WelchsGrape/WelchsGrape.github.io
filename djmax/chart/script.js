@@ -300,7 +300,9 @@ function makeChartFromArray(div, inputArray, noteSource, noteWidth, isLongArray,
     const maxLane = !noteSource ? keys : 2;
 
     for (let lane = 0; lane < maxLane; lane++) {
-        noteSource ??= getNoteImage(lane);
+        if (maxLane === keys) {
+            noteSource = getNoteImage(lane);
+        }
 
         if (!isLongArray) {
             // 칩 노트
