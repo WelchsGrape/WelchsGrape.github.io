@@ -72,12 +72,6 @@ function chartInfo() {
     const level = chart[0][`PLAYLEVEL`];
     header.innerText = `[${mode} SHD] ${title} / Artist: ${artist} / BPM: ${bpm} / Level: ${level} / Notes: ${noteCount}`;
 
-    const hr = document.createElement(`hr`);
-    header.append(hr);
-
-    const footer = document.getElementById(`footer`);
-    footer.prepend(hr);
-
     // 키보드 입력 받기
     window.addEventListener(`keydown`, e => {
         switch (e.key) {
