@@ -289,15 +289,15 @@ function makeChart() {
             makeChartFromArray(div, longFXArray, noteFX, sideWidth, true, FXAlive, FXPos);
         }
         makeChartFromArray(div, sideArray, noteSide, sideWidth, true, sideAlive, sidePos);
-        makeChartFromArray(div, chipArray, null, noteWidth, false);
-        makeChartFromArray(div, longArray, null, noteWidth, true, longAlive, longPos);
+        makeChartFromArray(div, chipArray, null, laneWidth, false);
+        makeChartFromArray(div, longArray, null, laneWidth, true, longAlive, longPos);
     }
 }
 
 // 주어진 배열에 맞게 채보 작성
 function makeChartFromArray(div, inputArray, noteSource, noteWidth, isLongArray, longAlive = null, longPos = null) {
     const noteLiteral = `01`;
-    
+
     for (let lane = 0; lane < (!noteSource ? keys : 2); lane++) {
         noteSource ??= getNoteImage(lane);
 
