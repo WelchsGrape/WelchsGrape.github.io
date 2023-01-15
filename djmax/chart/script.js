@@ -59,9 +59,18 @@ const displaySize = 256;
 const noteSide = `../side.png`;
 const noteFX = `fx.png`;
 const sideWidth = 60;
-let noteBlack = ``;
-let noteWhite = ``;
-let laneWidth = 0;
+// 모드별 버튼 리소스 획득
+const getButtonResources = () => {
+    switch (keys) {
+        case 4:
+            return [`4b.png`, `4w.png`, 30];
+        case 5:
+            return [`5b.png`, `5w.png`, 24];
+        case 6:
+            return [`6b.png`, `6w.png`, 20];
+    }
+}
+const [noteBlack, noteWhite, laneWidth] = getButtonResources();
 let chipSize = 5;
 let currentOrder = ``;
 let isSideTrackMirror = false;
@@ -109,92 +118,41 @@ function chartInfo() {
     });
 }
 
-// 노트 별 리소스 할당
-function getButtonResources() {
-    switch (keys) {
-        case 4:
-            noteBlack = `4b.png`;
-            noteWhite = `4w.png`;
-            laneWidth = 30;
-            break;
-        case 5:
-            noteBlack = `5b.png`;
-            noteWhite = `5w.png`;
-            laneWidth = 24;
-            break;
-        case 6:
-            noteBlack = `6b.png`;
-            noteWhite = `6w.png`;
-            laneWidth = 20;
-            break;
-    }
-}
-
-// 해당 레인이 백건반인지 흑건반인지 파악
-function getNoteImage(lane) {
-    switch (keys) {
-        case 4:
-            if (lane === 1 || lane === 2) {
-                return noteBlack;
-            } else {
-                return noteWhite;
-            }
-        case 5:
-            if (lane === 1 || lane === 3) {
-                return noteBlack;
-            } else {
-                return noteWhite;
-            }
-        case 6:
-            if (lane === 1 || lane === 4) {
-                return noteBlack;
-            } else {
-                return noteWhite;
-            }
-    }
-}
-
-// 현재 레인 순서를 패턴 아래에 텍스트로 표기
-function getTextFromOrder() {
-    switch (keys) {
-        case 4:
-            return `[${Number(currentOrder) + 1111} + ${isSideTrackMirror ? `RL` : `LR`}]`;
-        case 5:
-            return `[${Number(currentOrder) + 11111} + ${isSideTrackMirror ? `RL` : `LR`}]`;
-        case 6:
-            return `[${Number(currentOrder) + 111111} + ${isSideTrackMirror ? `RL` : `LR`}]`;
-    }
-}
-
 // 차트 그리기
 function makeChart() {
     // 기존에 생성된 보면이 있다면 지우고 새로 만들기
-    const dataArea = document.getElementById(`data`);
-    if (dataArea) {
-        dataArea.remove();
-        document.getElementById(`order`).innerText = getTextFromOrder();
-    }
-
+    document.getElementById(`data`)?.remove();
+    
+    // 현재 레인 순서를 패턴 아래에 텍스트로 표기
+    const getTextFromOrder = () => {
+        switch (keys) {
+            case 4:
+                return `[${Number(currentOrder) + 1111} + ${isSideTrackMirror ? `RL` : `LR`}]`;
+            case 5:
+                return `[${Number(currentOrder) + 11111} + ${isSideTrackMirror ? `RL` : `LR`}]`;
+            case 6:
+                return `[${Number(currentOrder) + 111111} + ${isSideTrackMirror ? `RL` : `LR`}]`;
+        }
+    };
+    document.getElementById(`order`).innerText = getTextFromOrder();
+    
     // 전역 틀 만들기
     const globalTable = document.createElement(`table`);
     const globalTr = document.createElement(`tr`);
     let globalTd = document.createElement(`td`);
-
+    
     globalTable.id = `data`;
     globalTable.append(globalTr);
-
+    
     document.getElementById(`article`).append(globalTable);
-
+    
     globalTr.append(globalTd);
-
-    // 모드별 버튼 리소스 획득
-    getButtonResources();
-
+    
     // 레인별 롱 노트 종료 여부
     const sideAlive = new Array(2).fill(false);
     const FXAlive = new Array(2).fill(false);
     const longAlive = new Array(keys).fill(false);
-
+    
     // 마디별 노트 작성
     for (let measure = 1; measure < chart.length; measure++) {
         // 곡마다 시작 마디를 설정하면 그 번호가 맨 아래로 가게끔 할 수 있다.
@@ -227,22 +185,20 @@ function makeChart() {
         const sideArray = [chart[measure][`04`], chart[measure][`07`]];
         const chipFXArray = [chart[measure][`16`], chart[measure][`14`]];
         const longFXArray = [chart[measure][`56`], chart[measure][`54`]];
-        let chipArray = null;
-        let longArray = null;
-        switch (keys) {
-            case 4:
-                chipArray = [chart[measure][`11`], chart[measure][`12`], chart[measure][`14`], chart[measure][`15`]];
-                longArray = [chart[measure][`51`], chart[measure][`52`], chart[measure][`54`], chart[measure][`55`]];
-                break;
-            case 5:
-                chipArray = [chart[measure][`11`], chart[measure][`12`], chart[measure][`13`], chart[measure][`14`], chart[measure][`15`]];
-                longArray = [chart[measure][`51`], chart[measure][`52`], chart[measure][`53`], chart[measure][`54`], chart[measure][`55`]];
-                break;
-            case 6:
-                chipArray = [chart[measure][`11`], chart[measure][`12`], chart[measure][`13`], chart[measure][`15`], chart[measure][`18`], chart[measure][`19`]];
-                longArray = [chart[measure][`51`], chart[measure][`52`], chart[measure][`53`], chart[measure][`55`], chart[measure][`58`], chart[measure][`59`]];
-                break;
-        }
+        const getButtonArray = () => {
+            switch (keys) {
+                case 4:
+                    return [[chart[measure][`11`], chart[measure][`12`], chart[measure][`14`], chart[measure][`15`]],
+                            [chart[measure][`51`], chart[measure][`52`], chart[measure][`54`], chart[measure][`55`]]];
+                case 5:
+                    return [[chart[measure][`11`], chart[measure][`12`], chart[measure][`13`], chart[measure][`14`], chart[measure][`15`]],
+                            [chart[measure][`51`], chart[measure][`52`], chart[measure][`53`], chart[measure][`54`], chart[measure][`55`]]];
+                case 6:
+                    return [[chart[measure][`11`], chart[measure][`12`], chart[measure][`13`], chart[measure][`15`], chart[measure][`18`], chart[measure][`19`]],
+                            [chart[measure][`51`], chart[measure][`52`], chart[measure][`53`], chart[measure][`55`], chart[measure][`58`], chart[measure][`59`]]];
+            }
+        };
+        const [chipArray, longArray] = getButtonArray();
 
         // 롱 노트 최종 위치
         const sidePos = new Array(2).fill(0);
@@ -292,6 +248,37 @@ function makeChart() {
 function makeChartFromArray(div, inputArray, noteSource, noteWidth, isLongArray, longAlive = null, longPos = null) {
     const noteLiteral = `01`;
     const maxLane = !noteSource ? keys : 2;
+    // 해당 레인이 백건반인지 흑건반인지 파악
+    const getNoteImage = lane => {
+        switch (keys) {
+            case 4:
+                if (lane === 1 || lane === 2) {
+                    return noteBlack;
+                } else {
+                    return noteWhite;
+                }
+            case 5:
+                if (lane === 1 || lane === 3) {
+                    return noteBlack;
+                } else {
+                    return noteWhite;
+                }
+            case 6:
+                if (lane === 1 || lane === 4) {
+                    return noteBlack;
+                } else {
+                    return noteWhite;
+                }
+        }
+    };
+
+    // 노트 위치 설정 후 삽입
+    const insertNote = (div, source, noteStyle) => {
+        const note = document.createElement(`img`);
+        note.src = source;
+        note.setAttribute(`style`, noteStyle);
+        div.append(note);
+    };
 
     for (let lane = 0; lane < maxLane; lane++) {
         if (maxLane === keys) {
@@ -338,72 +325,38 @@ function makeChartFromArray(div, inputArray, noteSource, noteWidth, isLongArray,
     }
 }
 
-// 노트 위치 설정 후 삽입
-function insertNote(div, source, noteStyle) {
-    const note = document.createElement(`img`);
-    note.src = source;
-    note.setAttribute(`style`, noteStyle);
-    div.append(note);
-}
-
-// 칩 노트 크기 설정
-function setChipSize() {
-    chipSize = Number(prompt(`칩 노트 크기를 설정해 주세요.`, 5));
-    makeChart();
-}
-
 // 정규 배치 생성
 function chartDefault() {
-    switch (keys) {
-        case 4:
-            currentOrder = `0123`;
-            break;
-        case 5:
-            currentOrder = `01234`;
-            break;
-        case 6:
-            currentOrder = `012345`;
-            break;
+    const getDefaultOrder = () => {
+        switch (keys) {
+            case 4:
+                return `0123`;
+            case 5:
+                return `01234`;
+            case 6:
+                return `012345`;
+        }
     }
+    currentOrder = getDefaultOrder();
 
     isSideTrackMirror = false;
     makeChart();
 }
 
-// 입력받은 텍스트를 재배치할 레인으로 변환
-function getOrderFromText(order) {
-    switch (keys) {
-        case 4:
-            order -= 1111;
-            break;
-        case 5:
-            order -= 11111;
-            break;
-        case 6:
-            order -= 111111;
-            break;
-    }
-
-    return String(order).padStart(keys, `0`);
-}
-
 // 커스텀 배치 생성
 function chartCustom() {
-    let example = ``;
-
-    switch (keys) {
-        case 4:
-            example = `1234`;
-            break;
-        case 5:
-            example = `12345`;
-            break;
-        case 6:
-            example = `123456`;
-            break;
+    const getExampleOrder = () => {
+        switch (keys) {
+            case 4:
+                return `1234`;
+            case 5:
+                return `12345`;
+            case 6:
+                return `123456`;
+        }
     }
 
-    const order = prompt(`원하는 랜덤 배치를 입력해주세요.`, example);
+    const order = prompt(`원하는 랜덤 배치를 입력해주세요.`, getExampleOrder());
     // 유효하지 않은 경우 중도 취소
     if (order.length != keys) {
         alert(`잘못된 입력입니다. 키 수를 맞춰주세요.`);
@@ -412,46 +365,61 @@ function chartCustom() {
 
     isSideTrackMirror = confirm(`사이드 트랙을 서로 바꿀까요?`);
 
-    // 입력받은 텍스트를 레인 순서로 변경
+    // 입력받은 텍스트를 재배치할 레인으로 변환
+    const getOrderFromText = order => {
+        switch (keys) {
+            case 4:
+                order -= 1111;
+                break;
+            case 5:
+                order -= 11111;
+                break;
+            case 6:
+                order -= 111111;
+                break;
+        }
+    
+        return String(order).padStart(keys, `0`);
+    }
     currentOrder = getOrderFromText(order);
     makeChart();
 }
 
 // 미러 배치 생성
 function chartMirror() {
-    switch (keys) {
-        case 4:
-            currentOrder = `3210`;
-            break;
-        case 5:
-            currentOrder = `43210`;
-            break;
-        case 6:
-            currentOrder = `543210`;
-            break;
+    const getMirrorOrder = () => {
+        switch (keys) {
+            case 4:
+                return `3210`;
+            case 5:
+                return `43210`;
+            case 6:
+                return `543210`;
+        }
     }
+    currentOrder = getMirrorOrder();
 
     isSideTrackMirror = true;
     makeChart();
 }
 
-// 최소 이상 최대 미만에서 임의의 정수 생성
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
 // 배열이 주어졌을 때 임의의 레인을 생성
 function getRandomOrder(array) {
-    let order = ``;
+    const order = [];
+    // 최소 이상 최대 미만에서 임의의 정수 생성
+    const getRandomInt = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    };
 
     while (array.length > 0) {
-        let num = getRandomInt(0, array.length);
-        order += array[num] + ``;
+        const num = getRandomInt(0, array.length);
+        order.push(array[num]);
         array.splice(num, 1);
     }
-    return order;
+
+    return order.join(``);
 }
 
 // 랜덤 배치 생성
@@ -470,20 +438,16 @@ function chartRandom() {
 
 // 하프 랜덤 배치 생성
 function chartHalf() {
-    let left = null;
-    let right = null;
-
-    switch (keys) {
-        case 4:
-        case 5:
-            left = [0, 1];
-            right = [2, 3];
-        break;
-        case 6:
-            left = [0, 1, 2];
-            right = [3, 4, 5];
-        break;
+    const setLeftRight = () => {
+        switch (keys) {
+            case 4:
+            case 5:
+                return [[0, 1], [2, 3]];
+            case 6:
+                return [[0, 1, 2], [3, 4, 5]];
+        }
     }
+    const [left, right] = setLeftRight();
 
     currentOrder = getRandomOrder(left);
     if (keys === 5) {
@@ -492,5 +456,11 @@ function chartHalf() {
     currentOrder += getRandomOrder(right);
 
     isSideTrackMirror = false;
+    makeChart();
+}
+
+// 칩 노트 크기 설정
+function setChipSize() {
+    chipSize = Number(prompt(`칩 노트 크기를 설정해 주세요.`, 5));
     makeChart();
 }
