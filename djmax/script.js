@@ -1,7 +1,9 @@
-let data = null;
+const data = await getData(`djmaxdb.json`);
 
-fetch(`djmaxdb.json`)
-.then(res => data = res.json());
+async function getData(url) {
+    const response = await fetch(url);
+    return response.json();
+}
 
 // 이미 만들어진 테이블을 삭제
 function removeTable() {
