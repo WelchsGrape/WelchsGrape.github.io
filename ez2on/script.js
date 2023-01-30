@@ -1,8 +1,10 @@
-const data = await getData(`djmaxdb.json`);
+let data = null;
 
-async function getData(url) {
-    const response = await fetch(url);
-    return response.json();
+getData();
+
+async function getData() {
+    const res = await fetch(`ez2ondb.json`);
+    data = await res.json();
 }
 
 // 이미 만들어진 테이블을 삭제
