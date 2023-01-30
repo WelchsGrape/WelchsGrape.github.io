@@ -1,3 +1,8 @@
+let data = null;
+
+fetch(`djmaxdb.json`)
+.then(res => data = res.json());
+
 // 이미 만들어진 테이블을 삭제
 function removeTable() {
     document.getElementById('section').innerText = '';
